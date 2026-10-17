@@ -413,6 +413,46 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 1em;
+  height: 1em;
+  position: relative;
+}
+
+/* Draw the Christian cross with CSS so it is never rendered as an emoji glyph. */
+.cross-divider-icon::before,
+.cross-divider-icon::after,
+.christian-cross::before,
+.christian-cross::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.cross-divider-icon::before,
+.christian-cross::before {
+  width: 0.16em;
+  height: 0.95em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cross-divider-icon::after,
+.christian-cross::after {
+  width: 0.72em;
+  height: 0.16em;
+  left: 50%;
+  top: 37%;
+  transform: translate(-50%, -50%);
+}
+
+.christian-cross {
+  color: var(--color-gold-dark);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: relative;
 }
 
 /* Paper Card Aesthetic */

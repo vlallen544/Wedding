@@ -105,7 +105,7 @@ export default function HeroSection() {
               {weddingConfig.couple.displayNames}
             </h2>
 
-            {/* Sacred Verse Extracted from Mood Board */}
+            {/* Sacred verse */}
             <div style={{
               background: 'rgba(255, 255, 255, 0.88)',
               borderLeft: '3px solid var(--color-champagne-gold)',
@@ -135,7 +135,7 @@ export default function HeroSection() {
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
               }}>
-                <span>✝</span>
+                <span className="christian-cross" aria-hidden="true" />
                 <span>{sacredVerse.verse}</span>
               </div>
             </div>

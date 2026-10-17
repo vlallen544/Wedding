@@ -110,9 +110,9 @@ export default function Footer() {
           {weddingConfig.couple.monogram}
         </div>
 
-        {/* Guest Love Note Card (Extracted from Mood Board Page 8) */}
+        {/* Guest Love Note Card */}
         <div 
-          className="paper-card"
+          className="paper-card guest-note-card"
           style={{
             padding: '2.5rem 2rem',
             marginBottom: '3rem',
@@ -140,7 +140,7 @@ export default function Footer() {
             {littleNote.title}
           </p>
           <div className="cross-divider" style={{ margin: '0 auto 1.5rem' }} aria-hidden="true">
-            <span className="cross-divider-icon">✦</span>
+            <span className="cross-divider-icon" aria-hidden="true" />
           </div>
           <p style={{
             fontSize: '1.05rem',

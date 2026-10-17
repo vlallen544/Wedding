@@ -3,7 +3,7 @@ import { Calendar, Clock, Sparkles, AlertCircle, Shirt, ShieldCheck } from 'luci
 import { weddingConfig } from '../data/weddingConfig';
 
 export default function EventDetails() {
-  const { event, guestGuide, celebrationSchedule } = weddingConfig;
+  const { event, guestGuide } = weddingConfig;
   const [timeLeft, setTimeLeft] = useState(null);
 
   useEffect(() => {
@@ -87,12 +87,12 @@ export default function EventDetails() {
           <p className="section-subtitle">Save The Date</p>
           <h2 className="section-title">Reception Details</h2>
           <div className="cross-divider" aria-hidden="true">
-            <span className="cross-divider-icon">✝</span>
+            <span className="cross-divider-icon" aria-hidden="true" />
           </div>
         </div>
 
         {/* Floating Paper Cards Grid */}
-        <div style={{
+        <div className="event-summary-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '2rem',
@@ -101,7 +101,7 @@ export default function EventDetails() {
         }}>
           
           {/* Date Card */}
-          <div className="paper-card" style={{ padding: '2.5rem 1.75rem', textAlign: 'center' }}>
+          <div className="paper-card event-summary-card" style={{ padding: '2.5rem 1.75rem', textAlign: 'center' }}>
             <div style={{
               width: '56px',
               height: '56px',
@@ -157,7 +157,7 @@ export default function EventDetails() {
           </div>
 
           {/* Time Card */}
-          <div className="paper-card" style={{ padding: '2.5rem 1.75rem', textAlign: 'center' }}>
+          <div className="paper-card event-summary-card" style={{ padding: '2.5rem 1.75rem', textAlign: 'center' }}>
             <div style={{
               width: '56px',
               height: '56px',
@@ -214,86 +214,10 @@ export default function EventDetails() {
 
         </div>
 
-        {/* Celebration schedule transcribed from the mood board */}
-        <div
-          className="paper-card"
-          style={{
-            maxWidth: '900px',
-            margin: '0 auto 3.5rem',
-            padding: 'clamp(2rem, 4vw, 3rem)',
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF8F3 100%)',
-          }}
-        >
-          <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
-            <p className="section-subtitle" style={{ marginBottom: '0.45rem' }}>Our Wedding Calendar</p>
-            <h3 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', color: 'var(--color-text-main)', marginBottom: '0.45rem' }}>
-              A celebration of love, colour &amp; tradition
-            </h3>
-            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>
-              Three beautiful moments leading to Nihal &amp; Serene’s wedding.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-            gap: '1rem',
-          }}>
-            {celebrationSchedule.map((item) => (
-              <article
-                key={item.id}
-                style={{
-                  padding: '1.35rem',
-                  borderRadius: 'var(--radius-md)',
-                  background: 'rgba(231, 237, 242, 0.55)',
-                  border: '1px solid var(--color-border-blue)',
-                }}
-              >
-                <p style={{
-                  fontFamily: 'var(--font-subheading)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--color-gold-dark)',
-                  fontWeight: 600,
-                  marginBottom: '0.65rem',
-                }}>
-                  {item.date}
-                </p>
-                <h4 style={{ fontSize: '1.25rem', color: 'var(--color-text-main)', marginBottom: '0.45rem' }}>
-                  {item.title}
-                </h4>
-                <p style={{
-                  fontFamily: 'var(--font-serif-accent)',
-                  fontStyle: 'italic',
-                  fontSize: '1.05rem',
-                  color: 'var(--color-text-main)',
-                  marginBottom: '0.7rem',
-                }}>
-                  {item.subtitle}
-                </p>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.65, marginBottom: item.ladies ? '0.9rem' : 0 }}>
-                  {item.description}
-                </p>
-                {item.ladies && (
-                  <div style={{ borderTop: '1px solid var(--color-border-blue)', paddingTop: '0.8rem' }}>
-                    <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', lineHeight: 1.55, marginBottom: '0.55rem' }}>
-                      <strong>Ladies:</strong> {item.ladies}
-                    </p>
-                    <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', lineHeight: 1.55, margin: 0 }}>
-                      <strong>Gentlemen:</strong> {item.gentlemen}
-                    </p>
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
-        </div>
-
         {/* Countdown Area */}
         {timeLeft ? (
           <div 
-            className="paper-card"
+            className="paper-card event-countdown-card"
             style={{
               maxWidth: '680px',
               margin: '0 auto 4rem',
@@ -376,7 +300,7 @@ export default function EventDetails() {
 
         {/* Guest Attire & Dress Code Guide Decorated with Floral Garland */}
         <div 
-          className="paper-card"
+          className="paper-card dress-code-card"
           style={{
             maxWidth: '900px',
             margin: '0 auto',
@@ -414,53 +338,16 @@ export default function EventDetails() {
               Colour Palette: {guestGuide.paletteTitle} — {guestGuide.paletteSubtitle}
             </p>
 
-            {/* Pastel Color Palette Swatches */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '0.75rem',
-              marginTop: '1.25rem',
-              flexWrap: 'wrap',
-            }}>
-              {[
-                { name: 'Powder Blue', color: '#C6DCEC' },
-                { name: 'Ice Blue', color: '#D8E7EE' },
-                { name: 'Cloud Grey', color: '#E7EDF2' },
-                { name: 'Warm Ivory', color: '#FAF8F3' },
-                { name: 'Champagne Gold', color: '#D8C49A' },
-                { name: 'Soft Sage', color: '#D2DEC9' },
-                { name: 'Blush Mist', color: '#F2E4E4' },
-              ].map((swatch) => (
-                <div key={swatch.name} style={{ textAlign: 'center' }}>
-                  <div 
-                    title={swatch.name}
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '50%',
-                      background: swatch.color,
-                      border: '1.5px solid rgba(216, 196, 154, 0.5)',
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-                      margin: '0 auto 0.25rem',
-                    }}
-                  />
-                  <span style={{ fontSize: '0.65rem', color: 'var(--color-text-light)', fontFamily: 'var(--font-subheading)' }}>
-                    {swatch.name}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Attire Guidance Columns */}
-          <div style={{
+          <div className="dress-guidance-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '1.5rem',
             marginBottom: '2rem',
           }}>
-            <div style={{
+            <div className="dress-guidance-card" style={{
               background: 'var(--color-cloud-blue)',
               padding: '1.5rem',
               borderRadius: 'var(--radius-md)',
@@ -482,7 +369,7 @@ export default function EventDetails() {
               </p>
             </div>
 
-            <div style={{
+            <div className="dress-guidance-card" style={{
               background: 'var(--color-cloud-blue)',
               padding: '1.5rem',
               borderRadius: 'var(--radius-md)',
@@ -506,7 +393,7 @@ export default function EventDetails() {
           </div>
 
           {/* Celebration atmosphere adapted from the supplied evening guide */}
-          <div style={{
+          <div className="evening-vibe-card" style={{
             marginTop: '1.75rem',
             marginBottom: '1.75rem',
             padding: '1.25rem 1.5rem',
@@ -548,7 +435,7 @@ export default function EventDetails() {
             }}>
               "{guestGuide.blessingNote}"
             </p>
-            <div style={{
+            <div className="care-note" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',

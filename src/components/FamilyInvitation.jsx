@@ -53,15 +53,15 @@ export default function FamilyInvitation() {
           <p className="section-subtitle">A Heartfelt Message</p>
           <h2 className="section-title">The Family Invitation</h2>
           <div className="cross-divider" aria-hidden="true">
-            <span className="cross-divider-icon">✝</span>
+            <span className="cross-divider-icon" aria-hidden="true" />
           </div>
         </div>
 
         {/* Paper Card Frame Decorated with Red & White Roses */}
         <div 
-          className="paper-card"
+          className="paper-card family-invitation-card"
           style={{
-            padding: 'clamp(2.5rem, 6vw, 4rem)clamp(1.75rem, 5vw, 3.5rem)',
+            padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.75rem, 5vw, 3.5rem)',
             textAlign: 'center',
             background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF8F3 100%)',
             position: 'relative',
@@ -125,12 +125,12 @@ export default function FamilyInvitation() {
           {/* Approved Invitation Text */}
           <div style={{ fontSize: '1.15rem', lineHeight: 1.9, color: 'var(--color-text-main)', marginBottom: '1.75rem' }}>
             <p style={{ marginBottom: '1.25rem' }}>
-              🥂 {invitationMessage.greeting} <strong style={{ color: 'var(--color-text-main)' }}>{invitationMessage.coupleNames}</strong>. 🎉✨
+              {invitationMessage.greeting} <strong style={{ color: 'var(--color-text-main)' }}>{invitationMessage.coupleNames}</strong>.
             </p>
             <p style={{ marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>
               {invitationMessage.paragraph}
             </p>
-            <div style={{
+            <div className="family-action-note" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',

@@ -55,7 +55,7 @@ export default function VenueSection() {
           <p className="section-subtitle">Destination &amp; Route</p>
           <h2 className="section-title">Venue &amp; Directions</h2>
           <div className="cross-divider" aria-hidden="true">
-            <span className="cross-divider-icon">✝</span>
+            <span className="cross-divider-icon" aria-hidden="true" />
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export default function VenueSection() {
             )}
 
             {/* Content & Directions */}
-            <div style={{ padding: 'clamp(1.75rem, 4vw, 2.75rem)', textAlign: 'center' }}>
+            <div className="venue-card-content" style={{ padding: 'clamp(1.75rem, 4vw, 2.75rem)', textAlign: 'center' }}>
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -129,7 +129,7 @@ export default function VenueSection() {
               </p>
 
               {!venue.isConfirmed && (
-                <div style={{
+                <div className="venue-pending-note" style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',

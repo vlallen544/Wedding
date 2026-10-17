@@ -96,6 +96,276 @@
   }
 }
 
+/* Phone layout refinements: keep every card readable and comfortably tappable. */
+@media (max-width: 480px) {
+  .section-wrapper {
+    padding: 3rem 0;
+  }
+
+  .container,
+  .container-narrow {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.75rem;
+    padding: 0 0.35rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 8vw, 2rem);
+    letter-spacing: 0.02em;
+  }
+
+  .invitation-cover {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    padding: 1.25rem 0.75rem 2rem !important;
+  }
+
+  .cover-header {
+    margin-bottom: 1.35rem !important;
+  }
+
+  .cover-header h1 {
+    font-size: clamp(1.7rem, 8vw, 2.3rem) !important;
+    line-height: 1.1;
+  }
+
+  .envelope-container {
+    width: min(94vw, 360px);
+    height: 250px;
+  }
+
+  .envelope-flap {
+    height: 125px;
+  }
+
+  .envelope-pocket {
+    height: 155px;
+  }
+
+  .envelope-letter {
+    height: 228px;
+    padding: 0.85rem;
+  }
+
+  .envelope-letter img {
+    width: 112px !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .envelope-letter h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.15;
+  }
+
+  .envelope-letter p:first-of-type {
+    font-size: 1rem !important;
+  }
+
+  .envelope-letter p:last-of-type {
+    font-size: 0.75rem !important;
+  }
+
+  .envelope-letter.extracted {
+    transform: translateY(-76px) translateZ(20px);
+  }
+
+  .envelope-container.is-open {
+    transform: rotateX(1deg) rotateY(0deg) translateY(42px);
+  }
+
+  .cover-actions {
+    width: min(100%, 320px);
+    margin-top: 1.8rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+
+  .hero-grid {
+    gap: 1.25rem;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+  }
+
+  .hero-content > h2 {
+    font-size: clamp(2rem, 10vw, 2.8rem) !important;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-content > p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-content .paper-card {
+    padding: 1rem !important;
+  }
+
+  .hero-brand-panel {
+    min-height: 240px;
+  }
+
+  .hero-couple-art {
+    width: min(100%, 280px);
+  }
+
+  .family-invitation-card {
+    padding: 2rem 1rem !important;
+  }
+
+  .family-invitation-card > div:last-child {
+    margin-top: 1.5rem !important;
+  }
+
+  .family-action-note {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    border-radius: 16px !important;
+    padding: 0.75rem 0.85rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45;
+  }
+
+  #event-details > img,
+  #family-invitation > img,
+  #venue-section > img,
+  #closing-section > img {
+    width: 90px !important;
+    opacity: 0.4 !important;
+  }
+
+  .event-summary-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .event-summary-card {
+    padding: 1.6rem 1rem !important;
+  }
+
+  .event-summary-card h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .event-countdown-card {
+    margin-bottom: 2.5rem !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .dress-code-card {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .dress-code-card h3 {
+    font-size: 1.45rem !important;
+    line-height: 1.2;
+  }
+
+  .dress-code-card > div:nth-child(2) > p {
+    font-size: 0.82rem !important;
+    line-height: 1.55;
+  }
+
+  .dress-guidance-grid {
+    display: block !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .dress-guidance-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .dress-guidance-card p:last-child {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .evening-vibe-card {
+    margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+    padding: 1rem !important;
+  }
+
+  .evening-vibe-card > p {
+    font-size: 1.05rem !important;
+    line-height: 1.5;
+  }
+
+  .evening-vibe-card > p:last-child {
+    font-size: 0.88rem !important;
+    line-height: 1.6;
+  }
+
+  .care-note {
+    width: 100%;
+    align-items: flex-start !important;
+    text-align: left;
+    border-radius: 14px !important;
+    padding: 0.65rem 0.75rem !important;
+    line-height: 1.5;
+  }
+
+  .venue-card-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .venue-card-content h3 {
+    font-size: 1.3rem !important;
+    line-height: 1.25;
+  }
+
+  .venue-card-content > p {
+    font-size: 0.92rem !important;
+  }
+
+  .venue-pending-note {
+    width: 100%;
+    align-items: flex-start !important;
+    text-align: left;
+    border-radius: 14px !important;
+    line-height: 1.5;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .guest-note-card {
+    padding: 1.75rem 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .guest-note-card > p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+  }
+
+  #closing-section h2 {
+    font-size: 1.9rem !important;
+  }
+
+  #closing-section > .container-narrow > p:not(.section-subtitle) {
+    font-size: 1.05rem !important;
+    line-height: 1.65;
+  }
+}
+
 /* Tablets (481px - 1024px) */
 @media (min-width: 481px) and (max-width: 1024px) {
   .gallery-grid {

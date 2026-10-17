@@ -86,7 +86,7 @@ export default function InvitationCover({ onOpen }) {
       </div>
 
       {/* Top Header Text */}
-      <div style={{ textAlign: 'center', marginBottom: '2.5rem', zIndex: 2, position: 'relative' }}>
+      <div className="cover-header" style={{ textAlign: 'center', marginBottom: '2.5rem', zIndex: 2, position: 'relative' }}>
         <p className="section-subtitle" style={{ letterSpacing: '0.25em', marginBottom: '0.5rem' }}>
           Wedding Reception Invitation
         </p>
@@ -94,7 +94,7 @@ export default function InvitationCover({ onOpen }) {
           {weddingConfig.couple.displayNames}
         </h1>
         <div className="cross-divider" aria-hidden="true">
-          <span className="cross-divider-icon" style={{ fontSize: '1rem' }}>✝</span>
+          <span className="cross-divider-icon" aria-hidden="true" />
         </div>
       </div>
 
@@ -184,7 +184,7 @@ export default function InvitationCover({ onOpen }) {
       </div>
 
       {/* Action Controls */}
-      <div style={{ marginTop: '3rem', textAlign: 'center', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+      <div className="cover-actions" style={{ marginTop: '3rem', textAlign: 'center', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
         {!isOpen ? (
           <button 
             type="button" 

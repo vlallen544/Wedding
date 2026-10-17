@@ -4,7 +4,6 @@ import HeroSection from './components/HeroSection';
 import FamilyInvitation from './components/FamilyInvitation';
 import EventDetails from './components/EventDetails';
 import VenueSection from './components/VenueSection';
-import PhotoGallery from './components/PhotoGallery';
 import Footer from './components/Footer';
 
 import './styles/global.css';
@@ -16,7 +15,35 @@ export default function App() {
     // Keep the first rendered view on the invitation envelope, even if the
     // browser tries to restore the previous scroll position on reload.
     window.history.scrollRestoration = 'manual';
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    const resetToCover = () => {
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      document.getElementById('invitation-cover')?.scrollIntoView({
+        behavior: 'auto',
+        block: 'start',
+        inline: 'nearest',
+      });
+      root.style.scrollBehavior = previousScrollBehavior;
+    };
+
+    resetToCover();
+    const firstFrame = window.requestAnimationFrame(() => {
+      resetToCover();
+      window.requestAnimationFrame(resetToCover);
+    });
+    const handlePageShow = () => {
+      resetToCover();
+      window.requestAnimationFrame(resetToCover);
+    };
+    window.addEventListener('pageshow', handlePageShow);
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.removeEventListener('pageshow', handlePageShow);
+    };
   }, []);
 
   return (
@@ -37,11 +64,9 @@ export default function App() {
         {/* Section 5: Venue and Directions */}
         <VenueSection />
 
-        {/* Section 6: Couple Gallery with Accessible Lightbox */}
-        <PhotoGallery />
       </main>
 
-      {/* Section 7: Closing Acknowledgments, Sharing, Back to Top */}
+      {/* Section 6: Closing Acknowledgments, Sharing, Back to Top */}
       <Footer />
     </div>
   );

@@ -33,7 +33,7 @@
   - Warm Ivory: `#FAF8F3`
   - Pearl White: `#FFFFFF`
   - Champagne Gold (Accents/Seal): `#D8C49A`
-  - Soft Sage Green: `#D2DEC9` (From Wedding Mood Board)
+  - Soft Sage Green: `#D2DEC9` (Soft botanical accent)
 - **Text & Contrast**:
   - Charcoal / Slate: `#24303E`
   - Muted Slate: `#4A5868`
@@ -48,11 +48,11 @@
 ## Approved Invitation Copy
 Preserve the exact names and family relationship from the family-approved copy:
 
-> 🥂 Join us for an evening of joy, celebration, and dinner as we celebrate the Grand Wedding Reception of our children, Nihal & Serene. 🎉✨
+> Join us for an evening of joy, celebration, and dinner as we celebrate the Grand Wedding Reception of our children, Nihal & Serene.
 >
 > We look forward to raising a toast, sharing memories, and celebrating this special evening together with you.
 >
-> 💌 Please scroll down to explore the reception details and venue information.
+> Please scroll down to explore the reception details and venue information.
 >
 > With warm regards and excitement,  
 > Julius Ruben & family
@@ -68,7 +68,7 @@ The site consists of one continuous, responsive scrolling page:
    - Clear open control and a smooth path into the content.
 2. **Section 2: Hero — Meet the Couple**
    - Couple display names and subtitle "Grand Wedding Reception".
-   - Sacred verse from mood board (*Matthew 18:19*: "He prayed for her, she prayed for him and God smiled knowing that their names are already written next to each other.").
+   - Sacred verse (*Matthew 18:19*: "He prayed for her, she prayed for him and God smiled knowing that their names are already written next to each other.").
    - Ceremony floral arch inspiration framing.
 3. **Section 3: Family Invitation**
    - Full approved invitation wording and host signature ("Julius Ruben & family").
@@ -76,15 +76,12 @@ The site consists of one continuous, responsive scrolling page:
 4. **Section 4: Reception Details & Guest Guide**
    - Confirmed date, day, start and end times in an elegant floating card.
    - Dynamic countdown timer calculated for `Asia/Kolkata` (hidden if dates are unconfirmed).
-   - Guest Attire & Dress Code guide with pastel palette swatches.
+   - Guest Attire & Dress Code written in plain language.
 5. **Section 5: Venue and Directions**
    - Venue name, address, and optional photo.
    - External Google Maps link button (`Get Directions`).
-6. **Section 6: Couple & Mood Board Gallery**
-   - Responsive photo grid with accessible lightbox (keyboard navigation, `Escape` key close).
-   - Authentic mood board floral, arch, and tablescape imagery.
-7. **Section 7: Closing Section**
-   - Heartfelt guest love note (*"A Little Note"* from mood board).
+6. **Section 6: Closing Section**
+   - Heartfelt guest love note (*"A Little Note"*).
    - Couple and host names, native Web Share API with clipboard copy fallback, smooth "Back to Top" control.
 
 ---

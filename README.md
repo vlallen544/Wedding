@@ -15,14 +15,13 @@ An elegant, mobile-first static wedding reception invitation website for **Nihal
 
 ---
 
-## 🏛️ Continuous 7-Section Architecture
+## Continuous 6-Section Architecture
 1. **Section 1 — Invitation Cover**: Full-screen 3D envelope with animated flap (`rotateX`) and an `N & S` wax monogram seal.
 2. **Section 2 — Hero: Meet the Couple**: Prominent names, subtitle "Grand Wedding Reception", arched floral frame with temporary hero portrait, and subtle mouse tilt depth.
 3. **Section 3 — Family Invitation**: Verbatim approved family invitation wording with host signature (*Julius Ruben & family*).
-4. **Section 4 — Reception Details**: Floating paper cards for the full celebration calendar, date, and time, with a dynamic countdown timer for `Asia/Kolkata` when a time is configured.
+4. **Section 4 — Reception Details**: Wedding date, time, written dress code, and a dynamic countdown timer for `Asia/Kolkata` when a time is configured.
 5. **Section 5 — Venue & Directions**: Venue details for Kottayam, Kerala with direct external link to Google Maps (no API key required).
-6. **Section 6 — Couple Gallery**: Responsive photo grid with accessible lightbox modal (keyboard navigation with `ArrowLeft`/`ArrowRight`, `Escape` to close, focus management).
-7. **Section 7 — Closing Section**: Gratitude note, couple & host names, native Web Share API action with clipboard copy fallback, and smooth Back to Top control.
+6. **Section 6 — Closing Section**: Gratitude note, couple & host names, native Web Share API action with clipboard copy fallback, and smooth Back to Top control.
 
 ---
 
@@ -65,7 +64,6 @@ To update dates, venue, or couple details, simply modify this file.
 Place official photos in `public/images/` and update paths in `src/data/weddingConfig.js`:
 - **Hero Photo**: `public/images/couple-hero.webp`
 - **Venue Photo**: `public/images/venue.webp`
-- **Gallery Photos**: `public/images/gallery-01.webp` through `gallery-06.webp`
 - **WhatsApp / Social Preview**: `public/og-image.jpg` (1200x630px)
 
 ---
