@@ -21,6 +21,7 @@ export default function FamilyInvitation() {
         src="/images/florals/rose-corner-tl.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           top: '-10px',
@@ -35,6 +36,7 @@ export default function FamilyInvitation() {
         src="/images/florals/rose-corner-br.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           bottom: '-10px',
@@ -72,6 +74,7 @@ export default function FamilyInvitation() {
             src="/images/florals/rose-corner-tr.webp"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             style={{
               position: 'absolute',
               top: '-15px',
@@ -86,6 +89,7 @@ export default function FamilyInvitation() {
             src="/images/florals/rose-corner-bl.webp"
             alt=""
             aria-hidden="true"
+            loading="lazy"
             style={{
               position: 'absolute',
               bottom: '-15px',
@@ -103,6 +107,7 @@ export default function FamilyInvitation() {
               src="/images/florals/rose-garland-horizontal.webp" 
               alt="" 
               aria-hidden="true" 
+              loading="lazy"
               style={{
                 width: 'clamp(180px, 45%, 320px)',
                 height: 'auto',
@@ -123,7 +128,7 @@ export default function FamilyInvitation() {
           </p>
 
           {/* Approved Invitation Text */}
-          <div style={{ fontSize: '1.15rem', lineHeight: 1.9, color: 'var(--color-text-main)', marginBottom: '1.75rem' }}>
+          <div className="family-invitation-copy" style={{ fontSize: '1.15rem', lineHeight: 1.9, color: 'var(--color-text-main)', marginBottom: '1.75rem' }}>
             <p style={{ marginBottom: '1.25rem' }}>
               {invitationMessage.greeting} <strong style={{ color: 'var(--color-text-main)' }}>{invitationMessage.coupleNames}</strong>.
             </p>

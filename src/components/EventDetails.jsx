@@ -7,13 +7,16 @@ export default function EventDetails() {
   const [timeLeft, setTimeLeft] = useState(null);
 
   useEffect(() => {
-    if (!event.date || !event.isDateConfirmed || !event.startTime) {
+    // A confirmed date is enough to show a useful countdown. When the exact
+    // reception time is still pending, count down to the start of that date
+    // and label the timer accordingly instead of inventing a time.
+    if (!event.date || !event.isDateConfirmed) {
       setTimeLeft(null);
       return;
     }
 
     const calculateTimeLeft = () => {
-      const targetTimeStr = event.startTime ? `${event.date}T${event.startTime}:00+05:30` : `${event.date}T18:00:00+05:30`;
+      const targetTimeStr = `${event.date}T${event.startTime || '00:00'}:00+05:30`;
       const targetDate = new Date(targetTimeStr).getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
@@ -55,6 +58,7 @@ export default function EventDetails() {
         src="/images/florals/rose-border-vertical-right.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           top: '12%',
@@ -69,6 +73,7 @@ export default function EventDetails() {
         src="/images/florals/rose-border-vertical-left.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           bottom: '10%',
@@ -227,7 +232,7 @@ export default function EventDetails() {
             }}
           >
             <p className="section-subtitle" style={{ marginBottom: '1.25rem' }}>
-              Counting Down To The Celebration
+              {event.startTime ? 'Counting Down To The Celebration' : 'Counting Down To The Reception Date'}
             </p>
             <div className="countdown-grid" style={{
               display: 'grid',
@@ -272,6 +277,15 @@ export default function EventDetails() {
                 </div>
               ))}
             </div>
+            {!event.startTime && (
+              <p style={{
+                marginTop: '1rem',
+                fontSize: '0.75rem',
+                color: 'var(--color-text-light)',
+              }}>
+                The exact reception time will be added once confirmed.
+              </p>
+            )}
           </div>
         ) : (
           <div style={{
@@ -293,7 +307,7 @@ export default function EventDetails() {
               "To everything there is a season, and a time to every purpose under heaven."
             </p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-light)' }}>
-              Countdown timer will activate automatically when the confirmed reception time is added.
+              Countdown timer will activate automatically when the confirmed reception date is added.
             </p>
           </div>
         )}
@@ -315,6 +329,7 @@ export default function EventDetails() {
               src="/images/florals/rose-garland-horizontal.webp"
               alt=""
               aria-hidden="true"
+              loading="lazy"
               style={{
                 width: 'clamp(200px, 50%, 360px)',
                 height: 'auto',

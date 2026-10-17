@@ -23,6 +23,7 @@ export default function VenueSection() {
         src="/images/florals/rose-corner-tl.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           top: '-15px',
@@ -37,6 +38,7 @@ export default function VenueSection() {
         src="/images/florals/rose-corner-br.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           bottom: '-15px',

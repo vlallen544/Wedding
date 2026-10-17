@@ -62,6 +62,7 @@ export default function Footer() {
         src="/images/florals/rose-corner-tl.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           top: '-15px',
@@ -76,6 +77,7 @@ export default function Footer() {
         src="/images/florals/rose-corner-br.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           bottom: '-15px',
@@ -127,6 +129,7 @@ export default function Footer() {
               src="/images/florals/rose-garland-horizontal.webp"
               alt=""
               aria-hidden="true"
+              loading="lazy"
               style={{
                 width: 'clamp(180px, 45%, 320px)',
                 height: 'auto',

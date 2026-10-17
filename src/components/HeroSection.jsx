@@ -22,6 +22,7 @@ export default function HeroSection() {
         src="/images/florals/rose-corner-tl.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           top: '-28px',
@@ -36,6 +37,7 @@ export default function HeroSection() {
         src="/images/florals/rose-corner-br.webp"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         style={{
           position: 'absolute',
           bottom: '-34px',
@@ -51,6 +53,7 @@ export default function HeroSection() {
         alt=""
         aria-hidden="true"
         className="hero-rose-garland"
+        loading="lazy"
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -65,6 +68,7 @@ export default function HeroSection() {
                 alt=""
                 aria-hidden="true"
                 className="hero-couple-floral hero-couple-floral--tl"
+                loading="lazy"
               />
               <img
                 src="/images/couple-illustration.png"
@@ -76,6 +80,7 @@ export default function HeroSection() {
                 alt=""
                 aria-hidden="true"
                 className="hero-couple-floral hero-couple-floral--br"
+                loading="lazy"
               />
             </div>
             <p className="section-subtitle">An evening to remember</p>
@@ -106,7 +111,7 @@ export default function HeroSection() {
             </h2>
 
             {/* Sacred verse */}
-            <div style={{
+            <div className="hero-verse" style={{
               background: 'rgba(255, 255, 255, 0.88)',
               borderLeft: '3px solid var(--color-champagne-gold)',
               padding: '1.25rem 1.5rem',
@@ -140,13 +145,13 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <p style={{ fontSize: '1.05rem', color: 'var(--color-text-muted)', marginBottom: '2rem', lineHeight: 1.8 }}>
+            <p className="hero-intro" style={{ fontSize: '1.05rem', color: 'var(--color-text-muted)', marginBottom: '2rem', lineHeight: 1.8 }}>
               With thankful hearts and the blessing of our families, we invite you to join in an unforgettable evening 
               of fellowship, laughter, and dining as we celebrate our new beginning together in Kottayam.
             </p>
 
             {/* Quick Highlights */}
-            <div style={{ 
+            <div className="hero-highlights" style={{
               display: 'flex', 
               flexWrap: 'wrap', 
               gap: '1rem', 

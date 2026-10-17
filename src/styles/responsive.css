@@ -493,3 +493,397 @@
     left: calc(50% + 8px);
   }
 }
+
+/* Final phone pass
+   Component styles are intentionally kept in the JSX for the invitation's
+   desktop art direction. These rules provide one consistent, narrow-phone
+   rhythm and prevent decorative artwork from competing with readable content. */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  .section-wrapper {
+    padding: 2.75rem 0;
+  }
+
+  .container,
+  .container-narrow {
+    width: 100%;
+    padding-inline: 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+    padding-inline: 0;
+  }
+
+  .section-subtitle {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+  }
+
+  .section-title {
+    max-width: 100%;
+    font-size: clamp(1.45rem, 7.4vw, 1.9rem);
+    line-height: 1.15;
+    padding-bottom: 0.65rem;
+  }
+
+  .cross-divider {
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  /* Keep the decorative side vines out of the reading column on phones. */
+  #hero-section > img:not(.hero-rose-garland),
+  #family-invitation > img,
+  #event-details > img,
+  #venue-section > img,
+  #closing-section > img {
+    display: none;
+  }
+
+  /* Cover */
+  .invitation-cover {
+    min-height: 100svh !important;
+    padding: max(1rem, env(safe-area-inset-top)) 0.75rem max(1.5rem, env(safe-area-inset-bottom)) !important;
+  }
+
+  .cover-header {
+    width: 100%;
+    margin-bottom: 1.1rem !important;
+  }
+
+  .cover-header h1 {
+    font-size: clamp(1.65rem, 8vw, 2.15rem) !important;
+    line-height: 1.08;
+  }
+
+  .cover-header .section-subtitle {
+    letter-spacing: 0.16em !important;
+    font-size: 0.62rem;
+  }
+
+  .envelope-container {
+    width: min(92vw, 350px);
+    height: 236px;
+  }
+
+  .envelope-flap {
+    height: 118px;
+  }
+
+  .envelope-pocket {
+    height: 146px;
+  }
+
+  .envelope-letter {
+    height: 214px;
+    padding: 0.7rem;
+  }
+
+  .envelope-letter img {
+    width: 100px !important;
+  }
+
+  .envelope-letter h2 {
+    font-size: 1.05rem !important;
+  }
+
+  .envelope-letter p:first-of-type {
+    font-size: 0.95rem !important;
+  }
+
+  .envelope-letter p:last-of-type {
+    font-size: 0.7rem !important;
+  }
+
+  .wax-seal-btn {
+    width: 52px;
+    height: 52px;
+    left: calc(50% - 26px);
+    bottom: -23px;
+  }
+
+  .cover-actions {
+    width: min(100%, 320px);
+    margin-top: 1.55rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 46px;
+    max-width: 100%;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.69rem;
+    letter-spacing: 0.055em;
+    line-height: 1.25;
+  }
+
+  /* Hero */
+  #hero-section .hero-grid {
+    gap: 1.75rem;
+  }
+
+  #hero-section .hero-content {
+    padding: 0 !important;
+  }
+
+  #hero-section .hero-content > h2 {
+    font-size: clamp(1.95rem, 10vw, 2.55rem) !important;
+    line-height: 1.08;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #hero-section .hero-verse {
+    padding: 0.85rem 0.95rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  #hero-section .hero-verse p {
+    font-size: 1.02rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  #hero-section .hero-verse > div {
+    gap: 0.35rem !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.045em !important;
+  }
+
+  #hero-section .hero-intro {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.35rem !important;
+  }
+
+  #hero-section .hero-highlights {
+    gap: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  #hero-section .hero-highlights > div {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .hero-brand-panel {
+    min-height: 0;
+    padding-top: 1.5rem;
+  }
+
+  .hero-couple-art {
+    width: min(100%, 250px);
+  }
+
+  .hero-brand-panel .hero-brand-event {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-brand-meta {
+    font-size: 0.66rem;
+  }
+
+  /* Family invitation */
+  .family-invitation-card {
+    padding: 1.65rem 0.9rem !important;
+  }
+
+  .family-invitation-card > img {
+    width: 64px !important;
+  }
+
+  .family-invitation-card > div:first-of-type img {
+    width: min(76%, 230px) !important;
+  }
+
+  .family-invitation-card > p {
+    font-size: 1.05rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .family-invitation-copy {
+    font-size: 0.98rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .family-invitation-copy > p {
+    margin-bottom: 1rem !important;
+  }
+
+  .family-action-note {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 0.7rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* Reception details */
+  .event-summary-grid {
+    gap: 0.75rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .event-summary-card {
+    padding: 1.3rem 0.8rem !important;
+  }
+
+  .event-summary-card > div:first-child {
+    width: 46px !important;
+    height: 46px !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .event-summary-card h3 {
+    font-size: 1.22rem !important;
+    line-height: 1.2;
+  }
+
+  .event-summary-card > p:not(:first-of-type) {
+    font-size: 0.8rem !important;
+    line-height: 1.45;
+  }
+
+  .event-summary-card > div:last-child {
+    max-width: 100%;
+    padding-inline: 0.55rem !important;
+    font-size: 0.67rem !important;
+  }
+
+  .event-countdown-card {
+    margin-bottom: 1.75rem !important;
+    padding: 1.1rem 0.7rem !important;
+  }
+
+  .countdown-grid {
+    gap: 0.45rem !important;
+  }
+
+  .countdown-box {
+    padding: 0.7rem 0.25rem !important;
+  }
+
+  .countdown-number {
+    font-size: 1.35rem !important;
+  }
+
+  .dress-code-card {
+    padding: 1.35rem 0.85rem !important;
+  }
+
+  .dress-code-card > div:first-child img {
+    width: min(76%, 250px) !important;
+  }
+
+  .dress-code-card h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .dress-code-card > div:nth-child(2) > p {
+    font-size: 0.78rem !important;
+  }
+
+  .dress-guidance-grid {
+    display: grid !important;
+    gap: 0.7rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .dress-guidance-card {
+    margin-bottom: 0 !important;
+    padding: 0.85rem !important;
+  }
+
+  .dress-guidance-card p:last-child {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .evening-vibe-card {
+    margin-block: 1rem !important;
+    padding: 0.85rem 0.75rem !important;
+  }
+
+  .evening-vibe-card > p {
+    font-size: 1rem !important;
+  }
+
+  .evening-vibe-card > p:last-child {
+    font-size: 0.8rem !important;
+  }
+
+  .care-note {
+    max-width: 100%;
+    align-items: flex-start !important;
+    text-align: left;
+    border-radius: 12px !important;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Venue and closing actions should never overflow a phone viewport. */
+  .venue-card-content {
+    padding: 1.35rem 0.85rem !important;
+  }
+
+  .venue-card-content h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .venue-card-content > p {
+    font-size: 0.84rem !important;
+    line-height: 1.55;
+  }
+
+  .venue-card-content .btn-primary {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .venue-pending-note {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: 12px !important;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .guest-note-card {
+    padding: 1.35rem 0.85rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .guest-note-card > div:first-child img {
+    width: min(76%, 230px) !important;
+  }
+
+  .guest-note-card > p {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+  }
+
+  #closing-section h2 {
+    font-size: 1.75rem !important;
+  }
+
+  #closing-section > .container-narrow > p:not(.section-subtitle) {
+    font-size: 0.98rem !important;
+    line-height: 1.55;
+  }
+
+  #closing-section .btn-primary,
+  #closing-section .btn-secondary {
+    width: 100%;
+  }
+}
