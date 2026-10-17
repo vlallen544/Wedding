@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FAF8F3"/><stop offset="100%" stop-color="#E7EDF2"/></linearGradient></defs>
+  <rect width="600" height="700" fill="url(#g5)"/>
+  <rect x="25" y="25" width="550" height="650" fill="none" stroke="#D8C49A" stroke-width="1.5"/>
+  <path d="M 260 300 C 270 270 310 260 340 280 C 320 280 300 295 300 315 C 320 310 350 315 360 330 C 330 330 300 325 285 340 C 285 325 275 315 260 300 Z" fill="#FFFFFF" stroke="#D8C49A" stroke-width="1.5"/>
+  <text x="300" y="490" font-family="'Cinzel', serif" font-size="18" fill="#24303E" text-anchor="middle" letter-spacing="2">PEACE &amp; BLESSINGS</text>
+  <text x="300" y="520" font-family="'Inter', sans-serif" font-size="12" fill="#758A99" text-anchor="middle">Gallery Placeholder 05</text>
+</svg>

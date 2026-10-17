@@ -1,0 +1,294 @@
+/* Keyframe Animations */
+
+@keyframes sealPulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(216, 196, 154, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(216, 196, 154, 0.7);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(216, 196, 154, 0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes sealShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes fallPetal1 {
+  0% {
+    transform: translate(0, -10px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(60px, 320px) rotate(160deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallPetal2 {
+  0% {
+    transform: translate(0, -10px) rotate(20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50px, 280px) rotate(-120deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coverFrameReveal {
+  0% {
+    opacity: 0;
+    transform: perspective(1100px) rotateX(7deg) translateY(18px) translateZ(-24px);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1100px) rotateX(0deg) translateY(0) translateZ(0);
+  }
+}
+
+@keyframes letterLift {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(-130px) translateZ(80px) rotateX(2deg) rotateZ(-1deg);
+  }
+}
+
+@keyframes letterLiftMobile {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(-90px) translateZ(20px) rotateX(2deg) rotateZ(-1deg);
+  }
+}
+
+/* Envelope 3D Architecture */
+.envelope-3d-scene {
+  perspective: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.envelope-container {
+  width: min(92vw, 480px);
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(3deg) rotateY(-1deg);
+  transition: transform var(--transition-envelope), filter var(--transition-envelope);
+}
+
+.envelope-container.is-open {
+  /* Give the lifted invitation more breathing room below the couple names. */
+  transform: rotateX(1deg) rotateY(0deg) translateY(72px);
+  filter: drop-shadow(0 28px 30px rgba(36, 48, 62, 0.12));
+}
+
+.envelope-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #FAF8F3 0%, var(--color-powder-blue) 100%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-envelope);
+  border: 1px solid var(--color-border-gold);
+  transform: translateZ(-8px);
+}
+
+/* Flap 3D transform */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s;
+  z-index: 10;
+}
+
+.envelope-flap.open {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.flap-triangle {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  background: linear-gradient(180deg, #F5F2EB 0%, #D8E7EE 100%);
+  border-top: 1px solid var(--color-border-gold);
+  filter: drop-shadow(0 4px 8px rgba(36, 48, 62, 0.1));
+  backface-visibility: hidden;
+}
+
+/* Front Pocket */
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 100%, 0% 100%);
+  background: linear-gradient(180deg, #EDF3F7 0%, #FAF8F3 100%);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border-top: 1px solid rgba(216, 196, 154, 0.3);
+  z-index: 5;
+  pointer-events: none;
+  transform: translateZ(14px);
+}
+
+/* Inner Letter Card */
+.envelope-letter {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  height: 290px;
+  bottom: 12px;
+  background: var(--color-pearl-white);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 20px rgba(36, 48, 62, 0.1);
+  border: 1px solid var(--color-border-gold);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.envelope-letter.extracted {
+  animation: letterLift 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  box-shadow: 0 20px 45px rgba(36, 48, 62, 0.2);
+  z-index: 12;
+}
+
+.envelope-letter::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(216, 196, 154, 0.28);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Wax Seal Button */
+.wax-seal-btn {
+  position: absolute;
+  bottom: -28px;
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #F0E6D2 0%, var(--color-champagne-gold) 65%, #A88F5B 100%);
+  border: 2px solid #E5D5B3;
+  box-shadow: 0 4px 15px rgba(216, 196, 154, 0.5);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FAF8F3;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 15;
+  animation: sealPulse 2.8s infinite ease-in-out;
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(216, 196, 154, 0.8);
+}
+
+.wax-seal-btn:focus-visible {
+  outline: 3px solid var(--color-champagne-gold);
+  outline-offset: 4px;
+}
+
+/* Interactive Lightbox Transition */
+.lightbox-overlay {
+  animation: fadeInCard 0.25s ease-out;
+}
+
+.lightbox-content {
+  animation: floatGentle 0.35s ease-out;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .envelope-flap {
+    transform: none !important;
+  }
+
+  .envelope-letter.extracted {
+    animation: none !important;
+    transform: translateY(-20px) !important;
+  }
+
+  .wax-seal-btn {
+    animation: none !important;
+  }
+
+  .petal {
+    display: none !important;
+  }
+}

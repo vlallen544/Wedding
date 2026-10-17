@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FAF8F3"/><stop offset="100%" stop-color="#C6DCEC"/></linearGradient></defs>
+  <rect width="600" height="700" fill="url(#g1)"/>
+  <rect x="25" y="25" width="550" height="650" fill="none" stroke="#D8C49A" stroke-width="1.5"/>
+  <circle cx="300" cy="300" r="140" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="275" cy="295" r="50" fill="none" stroke="#D8C49A" stroke-width="4"/>
+  <circle cx="325" cy="295" r="50" fill="none" stroke="#B89F6B" stroke-width="4"/>
+  <polygon points="325,238 332,248 318,248" fill="#D8C49A"/>
+  <text x="300" y="490" font-family="'Cinzel', serif" font-size="18" fill="#24303E" text-anchor="middle" letter-spacing="2">MOMENTS OF PROMISE</text>
+  <text x="300" y="520" font-family="'Inter', sans-serif" font-size="12" fill="#758A99" text-anchor="middle">Gallery Placeholder 01</text>
+</svg>

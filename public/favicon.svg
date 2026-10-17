@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5D5B3" />
+      <stop offset="50%" stop-color="#D8C49A" />
+      <stop offset="100%" stop-color="#B89F6B" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F3" />
+      <stop offset="100%" stop-color="#D8E7EE" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+  <circle cx="50" cy="50" r="41" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" stroke-dasharray="2 2" />
+  <!-- Delicate cross motif at top -->
+  <path d="M 50 17 L 50 25 M 46 20 L 54 20" stroke="url(#goldGrad)" stroke-width="1.2" stroke-linecap="round" />
+  <!-- Monogram N & S -->
+  <text x="50" y="58" font-family="'Cinzel', 'Cormorant Garamond', serif" font-size="22" font-weight="600" fill="#24303E" text-anchor="middle" letter-spacing="1">N&amp;S</text>
+  <path d="M 32 68 Q 50 74 68 68" fill="none" stroke="url(#goldGrad)" stroke-width="1" />
+</svg>

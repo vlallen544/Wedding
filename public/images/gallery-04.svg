@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D8E7EE"/><stop offset="100%" stop-color="#FAF8F3"/></linearGradient></defs>
+  <rect width="600" height="700" fill="url(#g4)"/>
+  <rect x="25" y="25" width="550" height="650" fill="none" stroke="#D8C49A" stroke-width="1.5"/>
+  <path d="M 270 240 L 285 320 L 285 360 L 265 360 L 305 360 L 285 360" fill="none" stroke="#D8C49A" stroke-width="2.5"/>
+  <path d="M 330 240 L 315 320 L 315 360 L 295 360 L 335 360 L 315 360" fill="none" stroke="#D8C49A" stroke-width="2.5"/>
+  <circle cx="300" cy="220" r="5" fill="#D8C49A" opacity="0.6"/>
+  <circle cx="290" cy="205" r="3" fill="#D8C49A" opacity="0.5"/>
+  <circle cx="310" cy="195" r="4" fill="#D8C49A" opacity="0.7"/>
+  <text x="300" y="490" font-family="'Cinzel', serif" font-size="18" fill="#24303E" text-anchor="middle" letter-spacing="2">A TOAST TO FOREVER</text>
+  <text x="300" y="520" font-family="'Inter', sans-serif" font-size="12" fill="#758A99" text-anchor="middle">Gallery Placeholder 04</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="vBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F3" />
+      <stop offset="100%" stop-color="#D8E7EE" />
+    </linearGradient>
+    <linearGradient id="vGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5D5B3" />
+      <stop offset="100%" stop-color="#D8C49A" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#vBg)" />
+  <rect x="20" y="20" width="760" height="460" rx="8" fill="none" stroke="url(#vGold)" stroke-width="1.5" stroke-dasharray="4 4" />
+  
+  <!-- Church / Elegant Manor Architectural Line Art -->
+  <g stroke="#758A99" stroke-width="1.5" fill="none" stroke-linejoin="round" opacity="0.65" transform="translate(400, 220)">
+    <path d="M -160 120 L -160 0 L 0 -110 L 160 0 L 160 120 Z" />
+    <path d="M -30 -110 L -30 -170 L 0 -210 L 30 -170 L 30 -110" />
+    <path d="M 0 -210 L 0 -235 M -10 -225 L 10 -225" stroke="url(#vGold)" stroke-width="2" stroke-linecap="round" />
+    <path d="M -40 120 L -40 40 A 40 40 0 0 1 40 40 L 40 120 Z" fill="#E7EDF2" />
+    <path d="M -25 -20 L -25 -65 A 25 25 0 0 1 25 -65 L 25 -20 Z" stroke="url(#vGold)" />
+    <line x1="0" y1="-90" x2="0" y2="-20" stroke="url(#vGold)" />
+    <line x1="-25" y1="-55" x2="25" y2="-55" stroke="url(#vGold)" />
+    <path d="M -240 120 L -240 30 L -160 0" />
+    <path d="M 240 120 L 240 30 L 160 0" />
+    <path d="M -220 120 L -220 60 A 15 15 0 0 1 -190 60 L -190 120" />
+    <path d="M 190 120 L 190 60 A 15 15 0 0 1 220 60 L 220 120" />
+  </g>
+
+  <!-- Placeholder Badge -->
+  <rect x="220" y="380" width="360" height="58" rx="29" fill="#FFFFFF" stroke="url(#vGold)" stroke-width="1.5" />
+  <text x="400" y="405" font-family="'Cinzel', serif" font-size="14" font-weight="600" fill="#24303E" text-anchor="middle" letter-spacing="1.5">VENUE PHOTOGRAPH PLACEHOLDER</text>
+  <text x="400" y="424" font-family="'Inter', sans-serif" font-size="11" fill="#758A99" text-anchor="middle">Confirmed Venue Image To Be Added (Kottayam, Kerala)</text>
+</svg>

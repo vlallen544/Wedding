@@ -1,0 +1,225 @@
+/* Responsive Design Styles */
+
+/* Base & Mobile-First (320px - 430px) */
+@media (max-width: 480px) {
+  .section-wrapper {
+    padding: 3.5rem 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-brand-panel {
+    order: 2;
+    align-items: center;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  /* Envelope scaling on narrow phones */
+  .envelope-container {
+    width: 90vw;
+    height: 270px;
+  }
+
+  .envelope-flap {
+    height: 135px;
+  }
+
+  .envelope-pocket {
+    height: 170px;
+  }
+
+  .envelope-letter {
+    height: 245px;
+    padding: 1rem;
+  }
+
+  .envelope-letter.extracted {
+    transform: translateY(-90px) translateZ(20px);
+    animation-name: letterLiftMobile;
+  }
+
+  .envelope-container.is-open {
+    transform: rotateX(1deg) rotateY(0deg) translateY(48px);
+  }
+
+  .wax-seal-btn {
+    width: 54px;
+    height: 54px;
+    bottom: -24px;
+    left: calc(50% - 27px);
+  }
+
+  .wax-seal-btn span {
+    font-size: 0.75rem;
+  }
+
+  /* Gallery grid */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Event Details & Countdown */
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .countdown-box {
+    padding: 0.85rem 0.5rem !important;
+  }
+
+  .countdown-number {
+    font-size: 1.6rem !important;
+  }
+
+  /* Navigation / Actions */
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Tablets (481px - 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-brand-panel {
+    order: 2;
+    align-items: center;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media (min-width: 1025px) {
+  .section-wrapper {
+    padding: 6rem 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.22fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-grid--portrait {
+    min-height: 620px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  .interactive-tilt {
+    transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-cover::before {
+    inset: 0.65rem;
+  }
+
+  .invitation-cover::after {
+    inset: 1rem;
+  }
+
+  .cover-floral {
+    width: 145px;
+  }
+
+  .cover-floral--tl {
+    top: -18px;
+    left: -48px;
+  }
+
+  .cover-floral--br {
+    right: -52px;
+    bottom: -20px;
+    width: 170px;
+  }
+
+  .cover-floral-garland {
+    width: min(92vw, 380px);
+    bottom: 1%;
+    opacity: 0.12;
+  }
+
+  .hero-brand-panel {
+    margin-top: 0.5rem;
+    min-height: 260px;
+    align-items: center;
+    border-left: 0;
+    border-top: 1px solid var(--color-border-gold);
+    padding: 2rem 0 0;
+  }
+
+  .hero-couple-art {
+    width: min(100%, 300px);
+    margin-bottom: 1.35rem;
+  }
+
+  .hero-couple-floral {
+    width: 76px;
+  }
+
+  .hero-couple-floral--tl {
+    right: -20px;
+  }
+
+  .hero-couple-floral--br {
+    left: -20px;
+  }
+
+  .hero-rose-garland {
+    width: min(88vw, 420px);
+    bottom: 1%;
+    opacity: 0.14;
+  }
+
+  .hero-brand-panel::before,
+  .hero-brand-panel::after {
+    top: -4px;
+    bottom: auto;
+  }
+
+  .hero-brand-panel::before {
+    left: calc(50% - 14px);
+  }
+
+  .hero-brand-panel::after {
+    left: calc(50% + 8px);
+  }
+}

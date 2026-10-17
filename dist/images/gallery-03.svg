@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FAF8F3"/><stop offset="100%" stop-color="#B8D3E5"/></linearGradient></defs>
+  <rect width="600" height="700" fill="url(#g3)"/>
+  <rect x="25" y="25" width="550" height="650" fill="none" stroke="#D8C49A" stroke-width="1.5"/>
+  <path d="M 230 400 L 230 250 A 70 70 0 0 1 370 250 L 370 400 Z" fill="#FFFFFF" opacity="0.7" stroke="#D8C49A" stroke-width="2"/>
+  <path d="M 300 170 L 300 210 M 285 185 L 315 185" stroke="#D8C49A" stroke-width="2" stroke-linecap="round"/>
+  <text x="300" y="490" font-family="'Cinzel', serif" font-size="18" fill="#24303E" text-anchor="middle" letter-spacing="2">FAITH &amp; DEVOTION</text>
+  <text x="300" y="520" font-family="'Inter', sans-serif" font-size="12" fill="#758A99" text-anchor="middle">Gallery Placeholder 03</text>
+</svg>
