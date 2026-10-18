@@ -63,13 +63,9 @@ export default function HeroSection() {
           <b>✦</b>
           <span>NIHAL &amp; SERENE</span>
           <b>✦</b>
-          <span>MARK 10:9</span>
-          <b>✦</b>
           <span>WITH GOD'S BLESSINGS</span>
           <b>✦</b>
           <span>NIHAL &amp; SERENE</span>
-          <b>✦</b>
-          <span>MARK 10:9</span>
           <b>✦</b>
         </div>
       </div>

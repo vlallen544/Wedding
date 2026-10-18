@@ -901,3 +901,152 @@
     width: 100%;
   }
 }
+
+/* Compact mobile hero: keep the portrait and invitation content together in
+   one editorial two-column composition. */
+@media (max-width: 480px) {
+  #hero-section .hero-grid {
+    grid-template-columns: minmax(102px, 0.78fr) minmax(0, 1.22fr);
+    gap: 0.8rem;
+    align-items: start;
+    text-align: left;
+  }
+
+  #hero-section .hero-brand-panel {
+    order: 1;
+    min-height: 0;
+    align-items: center;
+    border-top: 0;
+    border-left: 1px solid var(--color-border-gold);
+    padding: 0.15rem 0.65rem 0 0;
+    margin: 0;
+  }
+
+  #hero-section .hero-content {
+    order: 2;
+    min-width: 0;
+    padding: 0 !important;
+  }
+
+  #hero-section .hero-couple-art {
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 0.8rem;
+  }
+
+  #hero-section .hero-couple-floral {
+    width: 42px;
+  }
+
+  #hero-section .hero-couple-floral--tl {
+    top: -16px;
+    right: -14px;
+  }
+
+  #hero-section .hero-couple-floral--br {
+    bottom: -18px;
+    left: -14px;
+  }
+
+  #hero-section .hero-brand-panel .section-subtitle {
+    margin-bottom: 0.55rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
+
+  #hero-section .hero-brand-rule {
+    width: 42px;
+    margin-bottom: 0.55rem;
+  }
+
+  #hero-section .hero-brand-event {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
+  }
+
+  #hero-section .hero-brand-meta {
+    gap: 0.15rem;
+    font-size: 0.48rem;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+  }
+
+  #hero-section .hero-content > div:first-child {
+    gap: 0.25rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  #hero-section .hero-content > div:first-child .section-subtitle {
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+
+  #hero-section .hero-content > div:first-child svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  #hero-section .hero-content > h2 {
+    font-size: clamp(1.35rem, 7vw, 1.8rem) !important;
+    line-height: 1.05;
+    margin-bottom: 0.65rem !important;
+  }
+
+  #hero-section .hero-verse {
+    padding: 0.6rem 0.65rem !important;
+    margin-bottom: 0.7rem !important;
+    border-left-width: 2px;
+  }
+
+  #hero-section .hero-verse p {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  #hero-section .hero-verse > div {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.025em !important;
+  }
+
+  #hero-section .hero-intro {
+    font-size: 0.7rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #hero-section .hero-highlights {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 0.3rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #hero-section .hero-highlights > div {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    padding: 0.35rem 0.45rem !important;
+    font-size: 0.58rem !important;
+    line-height: 1.2;
+  }
+
+  #hero-section .hero-highlights svg {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 auto;
+  }
+
+  #hero-section .hero-content .btn-primary {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    padding: 0.55rem 0.4rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+}
