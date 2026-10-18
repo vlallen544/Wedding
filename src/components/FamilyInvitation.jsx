@@ -135,7 +135,10 @@ export default function FamilyInvitation() {
             <p style={{ marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>
               {invitationMessage.paragraph}
             </p>
-            <div className="family-action-note" style={{
+            <a
+              href="#event-details"
+              className="family-action-note"
+              style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
@@ -147,10 +150,11 @@ export default function FamilyInvitation() {
               color: 'var(--color-text-main)',
               fontStyle: 'normal',
               fontWeight: 500,
+              textDecoration: 'none',
             }}>
-              <span>{invitationMessage.actionNote}</span>
+              <span>Continue to reception details</span>
               <ArrowDown size={15} color="var(--color-gold-dark)" />
-            </div>
+            </a>
           </div>
 
           {/* Genuine Client Invitation URL Button — Only displayed when a genuine URL is configured */}

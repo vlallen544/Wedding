@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Calendar, MapPin } from 'lucide-react';
+import { Heart, Calendar, MapPin, ArrowDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 
 export default function HeroSection() {
@@ -205,8 +205,9 @@ export default function HeroSection() {
             </div>
 
             <div>
-              <a href="#event-details" className="btn-primary">
-                View Event Details
+              <a href="#family-invitation" className="btn-primary">
+                <span>Read Family Invitation</span>
+                <ArrowDown size={17} />
               </a>
             </div>
           </div>
