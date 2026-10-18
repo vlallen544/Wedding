@@ -56,6 +56,24 @@ export default function HeroSection() {
         loading="lazy"
       />
 
+      {/* A quiet running-letter detail inspired by the client's reference. */}
+      <div className="marquee-strip" aria-hidden="true">
+        <div className="marquee-track">
+          <span>WITH GOD'S BLESSINGS</span>
+          <b>✦</b>
+          <span>NIHAL &amp; SERENE</span>
+          <b>✦</b>
+          <span>MARK 10:9</span>
+          <b>✦</b>
+          <span>WITH GOD'S BLESSINGS</span>
+          <b>✦</b>
+          <span>NIHAL &amp; SERENE</span>
+          <b>✦</b>
+          <span>MARK 10:9</span>
+          <b>✦</b>
+        </div>
+      </div>
+
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-grid hero-grid--portrait">
 

@@ -249,6 +249,69 @@ p {
   filter: saturate(0.85) drop-shadow(0 8px 16px rgba(36, 48, 62, 0.06));
 }
 
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.72rem 0;
+  border-top: 1px solid rgba(216, 196, 154, 0.32);
+  border-bottom: 1px solid rgba(216, 196, 154, 0.32);
+  background: rgba(255, 255, 255, 0.34);
+  position: relative;
+  z-index: 1;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+  animation: marqueeRun 28s linear infinite;
+  color: var(--color-gold-dark);
+  font-family: var(--font-serif-accent);
+  font-size: 0.82rem;
+  font-style: italic;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.marquee-track b {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-champagne-gold);
+}
+
+.attire-palette {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.attire-palette-label {
+  margin-bottom: 0.65rem;
+  color: var(--color-gold-dark);
+  font-family: var(--font-subheading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.attire-palette-swatches {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.attire-palette-swatches span {
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid rgba(87, 104, 120, 0.08);
+  border-radius: 50%;
+  box-shadow: 0 3px 9px rgba(36, 48, 62, 0.08);
+}
+
 .hero-couple-art {
   width: min(100%, 360px);
   aspect-ratio: 715 / 661;

@@ -33,6 +33,15 @@
   }
 }
 
+@keyframes marqueeRun {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes fallPetal1 {
   0% {
     transform: translate(0, -10px) rotate(0deg);
@@ -290,5 +299,9 @@
 
   .petal {
     display: none !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
   }
 }

@@ -785,6 +785,19 @@
     width: min(76%, 250px) !important;
   }
 
+  .attire-palette {
+    margin-bottom: 1.25rem;
+  }
+
+  .attire-palette-swatches {
+    gap: 0.45rem;
+  }
+
+  .attire-palette-swatches span {
+    width: 1.65rem;
+    height: 1.65rem;
+  }
+
   .dress-code-card h3 {
     font-size: 1.3rem !important;
   }

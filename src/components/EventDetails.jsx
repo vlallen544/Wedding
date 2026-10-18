@@ -312,7 +312,7 @@ export default function EventDetails() {
           </div>
         )}
 
-        {/* Guest Attire & Dress Code Guide Decorated with Floral Garland */}
+        {/* Guest Attire & Dress Code Guide with a pastel palette */}
         <div 
           className="paper-card dress-code-card"
           style={{
@@ -323,22 +323,6 @@ export default function EventDetails() {
             position: 'relative',
           }}
         >
-          {/* Floral Garland Topper */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-            <img 
-              src="/images/florals/rose-garland-horizontal.webp"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              style={{
-                width: 'clamp(200px, 50%, 360px)',
-                height: 'auto',
-                pointerEvents: 'none',
-                opacity: 0.95,
-              }}
-            />
-          </div>
-
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-gold-dark)', marginBottom: '0.5rem' }}>
               <Shirt size={20} />
@@ -346,13 +330,23 @@ export default function EventDetails() {
                 {guestGuide.title}
               </span>
             </div>
+            <div className="attire-palette" aria-label="Pastel colour palette">
+              <p className="attire-palette-label">{guestGuide.paletteTitle}</p>
+              <div className="attire-palette-swatches" aria-hidden="true">
+                <span style={{ background: '#B9BBA0' }} />
+                <span style={{ background: '#B5CAD5' }} />
+                <span style={{ background: '#C8B7CD' }} />
+                <span style={{ background: '#E8B8B6' }} />
+                <span style={{ background: '#EBC5AE' }} />
+                <span style={{ background: '#DAB9BE' }} />
+              </div>
+            </div>
             <h3 style={{ fontSize: '1.85rem', color: 'var(--color-text-main)', marginBottom: '0.5rem' }}>
               {guestGuide.styleLabel}
             </h3>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
-              Colour Palette: {guestGuide.paletteTitle} — {guestGuide.paletteSubtitle}
+              {guestGuide.paletteSubtitle}
             </p>
-
           </div>
 
           {/* Attire Guidance Columns */}
@@ -377,7 +371,7 @@ export default function EventDetails() {
                 fontWeight: 600,
                 marginBottom: '0.5rem',
               }}>
-                For The Ladies
+                For Everyone
               </p>
               <p style={{ fontSize: '0.925rem', color: 'var(--color-text-main)', lineHeight: 1.7 }}>
                 {guestGuide.ladiesGuidance}

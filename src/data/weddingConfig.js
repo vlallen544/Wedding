@@ -30,24 +30,24 @@ export const weddingConfig = {
 
   // Sacred verse and wedding theme.
   sacredVerse: {
-    verse: "Matthew 18:19",
-    quote: "He prayed for her, she prayed for him and God smiled knowing that their names are already written next to each other.",
-    theme: "The First Chapter of Our Forever",
+    verse: "Mark 10:9",
+    quote: "What therefore God hath joined together, let not man put asunder.",
+    theme: "A Sacred Promise",
   },
 
   // Guest Attire, celebration guidance, and the closing note adapted from
   // the supplied wedding guide references.
   guestGuide: {
-    title: "Dress Code",
-    styleLabel: "Traditional Indian attire",
-    paletteTitle: "Pastel shades",
-    paletteSubtitle: "Soft blues, ivory, champagne, blush, and sage green are welcome",
-    ladiesGuidance: "Celebrate in beautiful Kanjivaram and Banarasi sarees, traditional silk sarees, lehengas, or festive ethnic sets. Think elegant hues, soft drapes, intricate weaves, and graceful silhouettes.",
-    gentsGuidance: "Choose a traditional kurta with mundu, a kurta with trousers, or an elegant Indo-Western look. A shirt with trousers is welcome too — keep it festive, refined, and comfortable.",
+    title: "Attire",
+    styleLabel: "Any pastel shades",
+    paletteTitle: "Colour palette",
+    paletteSubtitle: "Soft blues, blush, lavender, sage, ivory, and champagne are all welcome.",
+    ladiesGuidance: "Wear whatever makes you feel comfortable, chic and elegant — whatever makes you feel confident and like you.",
+    gentsGuidance: "Gents, if you choose to wear a suit or blazer, you're exempt from the colour palette.",
     blessingNote: "Come, dress up, be there, bless us, and have a peaceful, happy evening!",
-    vibeTitle: "Dinner, Dancing & Good Memories",
-    vibeMessage: "Raise a glass, share a laugh, and make memories with us as we celebrate this new beginning together.",
-    careNote: "Please plan a safe ride home, keep a sober driver with you, and drive back carefully.",
+    vibeTitle: "Drinks & Good Vibes",
+    vibeMessage: "Let's drink, dance and make memories!",
+    careNote: "Keep a sober driver with you.",
     littleNote: {
       title: "A Little Note to Our Guests",
       message: "Your presence at our wedding means the world to us. This little guide is here to help you plan your outfit and make the most of this celebration. Regardless of what is mentioned here, the most important thing is that you feel comfortable, confident, and completely yourself. We can’t wait to celebrate this special day with you — to create beautiful memories and be surrounded by the people we love.",
