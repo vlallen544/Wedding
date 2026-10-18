@@ -55,7 +55,7 @@ Preserve the exact names and family relationship from the family-approved copy:
 > Please scroll down to explore the reception details and venue information.
 >
 > With warm regards and excitement,  
-> Jose Anthony & family
+> Jose Antony & family
 
 *Display Name Note: Hero / headings may use "Nihal & Serene", while preserving the full text above in the Family Invitation section.*
 
@@ -71,7 +71,7 @@ The site consists of one continuous, responsive scrolling page:
    - Sacred verse (*Matthew 18:19*: "He prayed for her, she prayed for him and God smiled knowing that their names are already written next to each other.").
    - Ceremony floral arch inspiration framing.
 3. **Section 3: Family Invitation**
-   - Full approved invitation wording and host signature ("Jose Anthony & family").
+   - Full approved invitation wording and host signature ("Jose Antony & family").
    - Instruction directing guests to scroll down.
 4. **Section 4: Reception Details & Guest Guide**
    - Confirmed date, day, start and end times in an elegant floating card.

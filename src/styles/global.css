@@ -17,10 +17,12 @@
   --color-border-blue: rgba(198, 220, 236, 0.5);
 
   /* Typography */
-  --font-heading: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
-  --font-serif-accent: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-subheading: 'Montserrat', sans-serif;
+  /* Local serif family matched to the supplied invitation reference. */
+  --font-brand: 'Noto Serif Display', 'Noto Serif', Georgia, serif;
+  --font-heading: var(--font-brand);
+  --font-serif-accent: var(--font-brand);
+  --font-body: var(--font-brand);
+  --font-subheading: var(--font-brand);
 
   /* Shadows */
   --shadow-soft: 0 10px 30px -10px rgba(36, 48, 62, 0.08);

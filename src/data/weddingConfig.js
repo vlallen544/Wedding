@@ -13,7 +13,7 @@ export const weddingConfig = {
     invitationNames: "Nihal & Serene",
   },
 
-  hosts: "Jose Anthony & family",
+  hosts: "Jose Antony & family",
 
   // Approved invitation message as per PRD & updated user requirements
   invitationMessage: {
@@ -24,7 +24,7 @@ export const weddingConfig = {
     // Kept empty until a genuine client invitation link is provided
     referenceUrl: "",
     closing: "With warm regards and excitement,",
-    signature: "Jose Anthony & family",
+    signature: "Jose Antony & family",
   },
 
   // Sacred verse and wedding theme.
