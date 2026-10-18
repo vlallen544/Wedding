@@ -212,8 +212,8 @@ p {
 
 .startup-overlay__panel {
   height: 51%;
-  animation-duration: 1.7s;
-  animation-delay: 0.15s;
+  animation-duration: 2.3s;
+  animation-delay: 0.18s;
   animation-timing-function: cubic-bezier(0.65, 0, 0.2, 1);
   animation-fill-mode: both;
 }
@@ -239,7 +239,7 @@ p {
   gap: 0.7rem;
   color: var(--color-text-main);
   text-align: center;
-  animation: startupContentExit 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: startupContentExit 2.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .startup-rings {
@@ -330,72 +330,6 @@ p {
   animation-fill-mode: both;
 }
 
-.page-transition__card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  display: flex;
-  width: min(78vw, 380px);
-  min-height: 260px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  padding: 2rem 1.5rem;
-  border: 1px solid rgba(216, 196, 154, 0.62);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 248, 243, 0.98));
-  box-shadow: 0 24px 60px rgba(36, 48, 62, 0.2), inset 0 0 0 7px rgba(255, 255, 255, 0.55);
-  transform-style: preserve-3d;
-  opacity: 0;
-}
-
-.page-transition.is-active .page-transition__card {
-  animation: pageTransitionCard 2.75s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.page-transition__card::before {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border: 1px dashed rgba(216, 196, 154, 0.5);
-  pointer-events: none;
-}
-
-.page-transition__card img {
-  width: min(52%, 190px);
-  height: auto;
-  opacity: 0.9;
-}
-
-.page-transition__card span {
-  color: var(--color-gold-dark);
-  font-family: var(--font-serif-accent);
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-.page-transition__card strong {
-  color: var(--color-text-main);
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 4vw, 2rem);
-  letter-spacing: 0.06em;
-}
-
-.page-transition__card small {
-  color: var(--color-text-muted);
-  font-family: var(--font-subheading);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.page-transition__card > i {
-  width: 44px;
-  height: 1px;
-  background: var(--color-champagne-gold);
-}
-
 .page-transition__panel--top {
   top: 0;
   border-bottom: 1px solid rgba(216, 196, 154, 0.58);
@@ -424,30 +358,6 @@ p {
   background: linear-gradient(90deg, transparent, var(--color-champagne-gold), transparent);
   box-shadow: 0 0 26px 8px rgba(216, 196, 154, 0.3);
   animation: pageTransitionGlow 2.45s 0.2s ease both;
-}
-
-.page-transition__mark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.55rem;
-  color: var(--color-gold-dark);
-  font-family: var(--font-serif-accent);
-  font-size: clamp(1rem, 3vw, 1.35rem);
-  font-style: italic;
-  white-space: nowrap;
-  animation: pageTransitionMark 2.35s 0.25s ease both;
-}
-
-.page-transition__mark i {
-  display: block;
-  width: 38px;
-  height: 1px;
-  background: var(--color-champagne-gold);
 }
 
 .cover-floral-frame {

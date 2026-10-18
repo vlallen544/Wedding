@@ -19,7 +19,7 @@ export default function InvitationCover({ onOpen }) {
       return undefined;
     }
 
-    const timer = setTimeout(() => setHasStarted(true), 1850);
+    const timer = setTimeout(() => setHasStarted(true), 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -245,18 +245,7 @@ export default function InvitationCover({ onOpen }) {
       <div className={`page-transition ${isTransitioning ? 'is-active' : ''}`} aria-hidden="true">
         <div className="page-transition__panel page-transition__panel--top" />
         <div className="page-transition__panel page-transition__panel--bottom" />
-        <div className="page-transition__card">
-          <img src="/images/florals/rose-garland-horizontal.webp" alt="" aria-hidden="true" />
-          <span>With God's Blessings</span>
-          <strong>{weddingConfig.couple.displayNames}</strong>
-          <small>Grand Wedding Reception</small>
-          <i />
-        </div>
         <div className="page-transition__glow" />
-        <div className="page-transition__mark">
-          <span>With God's Blessings</span>
-          <i />
-        </div>
       </div>
     </section>
   );

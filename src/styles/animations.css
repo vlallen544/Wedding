@@ -127,35 +127,6 @@
   100% { opacity: 0; transform: scaleX(1.45); }
 }
 
-@keyframes pageTransitionMark {
-  0%, 30% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
-  48% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
-}
-
-@keyframes pageTransitionCard {
-  0%, 18% {
-    opacity: 0;
-    transform: translate(-50%, -42%) translateY(90px) rotateX(62deg) rotateZ(-2deg) scale(0.72);
-  }
-  40% {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(18px) rotateX(18deg) rotateZ(-1deg) scale(0.92);
-  }
-  62% {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateZ(0deg) scale(1);
-  }
-  84% {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(-4px) rotateX(0deg) rotateZ(0deg) scale(1.01);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(-28px) rotateX(-4deg) scale(1.04);
-  }
-}
-
 @keyframes fadeOutTransition {
   0%, 72% { opacity: 1; }
   100% { opacity: 0; }
