@@ -166,14 +166,6 @@ export default function InvitationCover({ onOpen }) {
                 onClick={handleOpen}
                 aria-label="Tap to open the wedding invitation"
               >
-                <span style={{ 
-                  fontFamily: 'var(--font-heading)', 
-                  fontWeight: 700, 
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.05em'
-                }}>
-                  {weddingConfig.couple.monogram}
-                </span>
                 <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.9 }}>
                   Open
                 </span>

@@ -11,10 +11,9 @@ export const weddingConfig = {
     secondName: "Serene",
     displayNames: "Nihal & Serene",
     invitationNames: "Nihal & Serene",
-    monogram: "N & S",
   },
 
-  hosts: "Julius Ruben & family",
+  hosts: "Jose Anthony & family",
 
   // Approved invitation message as per PRD & updated user requirements
   invitationMessage: {
@@ -25,7 +24,7 @@ export const weddingConfig = {
     // Kept empty until a genuine client invitation link is provided
     referenceUrl: "",
     closing: "With warm regards and excitement,",
-    signature: "Julius Ruben & family",
+    signature: "Jose Anthony & family",
   },
 
   // Sacred verse and wedding theme.

@@ -91,27 +91,6 @@ export default function Footer() {
 
       <div className="container-narrow" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
         
-        {/* Monogram Seal */}
-        <div style={{
-          width: '68px',
-          height: '68px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #FFFFFF, var(--color-ice-blue))',
-          border: '1.5px solid var(--color-champagne-gold)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: '0 auto 1.5rem',
-          boxShadow: 'var(--shadow-gold)',
-          fontFamily: 'var(--font-heading)',
-          fontSize: '1.25rem',
-          fontWeight: 700,
-          color: 'var(--color-text-main)',
-          letterSpacing: '0.05em',
-        }}>
-          {weddingConfig.couple.monogram}
-        </div>
-
         {/* Guest Love Note Card */}
         <div 
           className="paper-card guest-note-card"
