@@ -8,7 +8,6 @@ export default function InvitationCover({ onOpen }) {
   const [isExtracted, setIsExtracted] = useState(false);
   const [hasBorderAppeared, setHasBorderAppeared] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const openTimers = useRef([]);
 
   useEffect(() => {
@@ -33,7 +32,6 @@ export default function InvitationCover({ onOpen }) {
       return;
     }
     setIsOpen(true);
-    setIsTransitioning(true);
     // Let the flap lead, then pull the letter forward in a separate depth cue.
     openTimers.current.push(setTimeout(() => {
       setIsExtracted(true);
@@ -48,11 +46,7 @@ export default function InvitationCover({ onOpen }) {
     // Give the frame a moment to appear before moving into the invitation.
     openTimers.current.push(setTimeout(() => {
       scrollToContent();
-    }, 2650));
-
-    openTimers.current.push(setTimeout(() => {
-      setIsTransitioning(false);
-    }, 3100));
+    }, 1500));
   };
 
   const scrollToContent = () => {
@@ -65,7 +59,7 @@ export default function InvitationCover({ onOpen }) {
   return (
     <section 
       id="invitation-cover" 
-      className={`section-wrapper invitation-cover ${hasStarted ? 'cover-ready' : 'cover-booting'} ${hasBorderAppeared ? 'cover-border-visible' : ''} ${isTransitioning ? 'cover-transitioning' : ''}`}
+      className={`section-wrapper invitation-cover ${hasStarted ? 'cover-ready' : 'cover-booting'} ${hasBorderAppeared ? 'cover-border-visible' : ''}`}
       style={{
         minHeight: '100vh',
         display: 'flex',
@@ -242,11 +236,6 @@ export default function InvitationCover({ onOpen }) {
         </div>
       </div>
 
-      <div className={`page-transition ${isTransitioning ? 'is-active' : ''}`} aria-hidden="true">
-        <div className="page-transition__panel page-transition__panel--top" />
-        <div className="page-transition__panel page-transition__panel--bottom" />
-        <div className="page-transition__glow" />
-      </div>
     </section>
   );
 }

@@ -175,14 +175,6 @@ p {
   animation: coverActionsEnter 0.7s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.startup-overlay,
-.page-transition {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 100;
-}
-
 .startup-overlay {
   display: grid;
   place-items: center;
@@ -197,8 +189,7 @@ p {
   visibility: hidden;
 }
 
-.startup-overlay__panel,
-.page-transition__panel {
+.startup-overlay__panel {
   position: absolute;
   left: 0;
   width: 100%;
@@ -306,58 +297,6 @@ p {
   width: 74px;
   height: 1px;
   background: var(--color-champagne-gold);
-}
-
-.page-transition {
-  visibility: hidden;
-  opacity: 0;
-  overflow: hidden;
-  perspective: 1000px;
-}
-
-.page-transition.is-active {
-  visibility: visible;
-  opacity: 1;
-  animation: fadeOutTransition 2.9s 0.1s ease both;
-}
-
-.page-transition__panel {
-  height: 53%;
-  z-index: 1;
-  animation-duration: 2.65s;
-  animation-delay: 0.2s;
-  animation-timing-function: cubic-bezier(0.65, 0, 0.2, 1);
-  animation-fill-mode: both;
-}
-
-.page-transition__panel--top {
-  top: 0;
-  border-bottom: 1px solid rgba(216, 196, 154, 0.58);
-}
-
-.page-transition__panel--bottom {
-  bottom: 0;
-  border-top: 1px solid rgba(216, 196, 154, 0.58);
-}
-
-.page-transition.is-active .page-transition__panel--top {
-  animation-name: pageTransitionTop;
-}
-
-.page-transition.is-active .page-transition__panel--bottom {
-  animation-name: pageTransitionBottom;
-}
-
-.page-transition__glow {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  right: 8%;
-  height: 1px;
-  z-index: 3;
-  background: linear-gradient(90deg, transparent, var(--color-champagne-gold), transparent);
-  box-shadow: 0 0 26px 8px rgba(216, 196, 154, 0.3);
-  animation: pageTransitionGlow 2.45s 0.2s ease both;
 }
 
 .cover-floral-frame {

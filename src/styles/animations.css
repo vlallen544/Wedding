@@ -111,27 +111,6 @@
   75%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.55) rotate(25deg); }
 }
 
-@keyframes pageTransitionTop {
-  0%, 32% { transform: translateY(0) rotateX(0deg); }
-  100% { transform: translateY(-108%) rotateX(-5deg); }
-}
-
-@keyframes pageTransitionBottom {
-  0%, 32% { transform: translateY(0) rotateX(0deg); }
-  100% { transform: translateY(108%) rotateX(5deg); }
-}
-
-@keyframes pageTransitionGlow {
-  0%, 28% { opacity: 0; transform: scaleX(0.35); }
-  48% { opacity: 0.9; transform: scaleX(1); }
-  100% { opacity: 0; transform: scaleX(1.45); }
-}
-
-@keyframes fadeOutTransition {
-  0%, 72% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
 @keyframes fallPetal1 {
   0% {
     transform: translate(0, -10px) rotate(0deg);
@@ -395,8 +374,7 @@
     animation: none !important;
   }
 
-  .startup-overlay,
-  .page-transition.is-active {
+  .startup-overlay {
     display: none !important;
   }
 }
