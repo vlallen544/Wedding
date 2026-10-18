@@ -18,7 +18,9 @@ export default function InvitationCover({ onOpen }) {
       return undefined;
     }
 
-    const timer = setTimeout(() => setHasStarted(true), 2500);
+    // Let the opening veil finish fading before the cover content begins its
+    // own entrance. This prevents a washed-out overlap on mobile browsers.
+    const timer = setTimeout(() => setHasStarted(true), 3050);
     return () => clearTimeout(timer);
   }, []);
 
