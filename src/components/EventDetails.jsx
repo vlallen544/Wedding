@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, AlertCircle, Shirt, ShieldCheck } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
+import SectionScrollHint from './SectionScrollHint';
 
 export default function EventDetails() {
   const { event, guestGuide } = weddingConfig;
@@ -461,6 +462,7 @@ export default function EventDetails() {
 
         </div>
 
+        <SectionScrollHint />
       </div>
     </section>
   );

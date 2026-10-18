@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, Calendar, MapPin, ArrowDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
+import SectionScrollHint from './SectionScrollHint';
 
 export default function HeroSection() {
   const { sacredVerse } = weddingConfig;
@@ -68,6 +69,7 @@ export default function HeroSection() {
           <span>NIHAL &amp; SERENE</span>
           <b>✦</b>
         </div>
+
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -213,6 +215,8 @@ export default function HeroSection() {
           </div>
 
         </div>
+
+        <SectionScrollHint target="family-invitation" />
       </div>
     </section>
   );

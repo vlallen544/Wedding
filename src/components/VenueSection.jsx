@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Navigation, AlertCircle } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
+import SectionScrollHint from './SectionScrollHint';
 
 export default function VenueSection() {
   const { venue } = weddingConfig;
@@ -173,6 +174,8 @@ export default function VenueSection() {
 
           </div>
         </div>
+
+        <SectionScrollHint />
       </div>
     </section>
   );

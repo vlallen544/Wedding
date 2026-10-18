@@ -1,6 +1,7 @@
 import React from 'react';
 import { weddingConfig } from '../data/weddingConfig';
 import { ExternalLink, ArrowDown } from 'lucide-react';
+import SectionScrollHint from './SectionScrollHint';
 
 export default function FamilyInvitation() {
   const { invitationMessage } = weddingConfig;
@@ -211,6 +212,8 @@ export default function FamilyInvitation() {
           </div>
 
         </div>
+
+        <SectionScrollHint target="event-details" />
       </div>
     </section>
   );

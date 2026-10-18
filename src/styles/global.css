@@ -621,3 +621,27 @@ p {
   border-radius: 60% 0 60% 0;
   filter: drop-shadow(0 2px 4px rgba(198, 220, 236, 0.3));
 }
+
+.section-scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: fit-content;
+  margin: 2.2rem auto 0;
+  color: var(--color-gold-dark);
+  font-family: var(--font-subheading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0.86;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+a.section-scroll-hint:hover {
+  opacity: 1;
+  transform: translateY(2px);
+}

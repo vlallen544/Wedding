@@ -905,6 +905,12 @@
 /* Compact mobile hero: keep the portrait and invitation content together in
    one editorial two-column composition. */
 @media (max-width: 480px) {
+  .section-scroll-hint {
+    margin-top: 1.35rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+
   #hero-section .hero-grid {
     grid-template-columns: minmax(102px, 0.78fr) minmax(0, 1.22fr);
     gap: 0.8rem;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Mail, ChevronDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
+import SectionScrollHint from './SectionScrollHint';
 
 export default function InvitationCover({ onOpen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -200,6 +201,11 @@ export default function InvitationCover({ onOpen }) {
         )}
 
       </div>
+
+      <SectionScrollHint
+        target={isOpen ? 'hero-section' : undefined}
+        label={isOpen ? 'Slide down to begin' : 'Tap open invitation first'}
+      />
     </section>
   );
 }
