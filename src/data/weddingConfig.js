@@ -75,7 +75,7 @@ export const weddingConfig = {
     city: "Kottayam",
     state: "Kerala",
     // Standard Google Maps search URL for Kottayam as placeholder
-    mapsUrl: "https://maps.google.com/?q=Kottayam,+Kerala,+India",
+    mapsUrl: "https://maps.app.goo.gl/US6W2D6fBP215GGb9?g_st=iw",
     isConfirmed: false,
   },
 
