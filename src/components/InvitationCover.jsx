@@ -7,7 +7,21 @@ export default function InvitationCover({ onOpen }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isExtracted, setIsExtracted] = useState(false);
   const [hasBorderAppeared, setHasBorderAppeared] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const openTimers = useRef([]);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      setHasStarted(true);
+      return undefined;
+    }
+
+    const timer = setTimeout(() => setHasStarted(true), 1350);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => () => {
     openTimers.current.forEach(clearTimeout);
@@ -19,6 +33,7 @@ export default function InvitationCover({ onOpen }) {
       return;
     }
     setIsOpen(true);
+    setIsTransitioning(true);
     // Let the flap lead, then pull the letter forward in a separate depth cue.
     openTimers.current.push(setTimeout(() => {
       setIsExtracted(true);
@@ -34,6 +49,10 @@ export default function InvitationCover({ onOpen }) {
     openTimers.current.push(setTimeout(() => {
       scrollToContent();
     }, 1900));
+
+    openTimers.current.push(setTimeout(() => {
+      setIsTransitioning(false);
+    }, 2000));
   };
 
   const scrollToContent = () => {
@@ -46,7 +65,7 @@ export default function InvitationCover({ onOpen }) {
   return (
     <section 
       id="invitation-cover" 
-      className={`section-wrapper invitation-cover ${hasBorderAppeared ? 'cover-border-visible' : ''}`}
+      className={`section-wrapper invitation-cover ${hasStarted ? 'cover-ready' : 'cover-booting'} ${hasBorderAppeared ? 'cover-border-visible' : ''} ${isTransitioning ? 'cover-transitioning' : ''}`}
       style={{
         minHeight: '100vh',
         display: 'flex',
@@ -206,6 +225,27 @@ export default function InvitationCover({ onOpen }) {
         target={isOpen ? 'hero-section' : undefined}
         label={isOpen ? 'Slide down to begin' : 'Tap open invitation first'}
       />
+
+      {/* Layered opening veil for the initial load and the cover-to-hero move. */}
+      <div className={`startup-overlay ${hasStarted ? 'is-complete' : ''}`} aria-hidden="true">
+        <div className="startup-overlay__panel startup-overlay__panel--top" />
+        <div className="startup-overlay__panel startup-overlay__panel--bottom" />
+        <div className="startup-overlay__content">
+          <span className="startup-overlay__eyebrow">A new chapter begins</span>
+          <span className="startup-overlay__names">{weddingConfig.couple.displayNames}</span>
+          <span className="startup-overlay__rule" />
+        </div>
+      </div>
+
+      <div className={`page-transition ${isTransitioning ? 'is-active' : ''}`} aria-hidden="true">
+        <div className="page-transition__panel page-transition__panel--top" />
+        <div className="page-transition__panel page-transition__panel--bottom" />
+        <div className="page-transition__glow" />
+        <div className="page-transition__mark">
+          <span>With God's Blessings</span>
+          <i />
+        </div>
+      </div>
     </section>
   );
 }

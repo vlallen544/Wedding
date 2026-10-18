@@ -42,6 +42,82 @@
   }
 }
 
+@keyframes coverHeaderEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes coverEnvelopeEnter {
+  from {
+    opacity: 0;
+    transform: translateY(34px) rotateX(8deg) rotateY(-5deg) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(3deg) rotateY(-1deg) scale(1);
+  }
+}
+
+@keyframes coverActionsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes startupPanelTop {
+  from { transform: translateY(0); }
+  to { transform: translateY(-104%); }
+}
+
+@keyframes startupPanelBottom {
+  from { transform: translateY(0); }
+  to { transform: translateY(104%); }
+}
+
+@keyframes startupContentExit {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  65% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-12px) scale(0.96); }
+}
+
+@keyframes pageTransitionTop {
+  0%, 32% { transform: translateY(0) rotateX(0deg); }
+  100% { transform: translateY(-108%) rotateX(-5deg); }
+}
+
+@keyframes pageTransitionBottom {
+  0%, 32% { transform: translateY(0) rotateX(0deg); }
+  100% { transform: translateY(108%) rotateX(5deg); }
+}
+
+@keyframes pageTransitionGlow {
+  0%, 28% { opacity: 0; transform: scaleX(0.35); }
+  48% { opacity: 0.9; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(1.45); }
+}
+
+@keyframes pageTransitionMark {
+  0%, 30% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+  48% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes fadeOutTransition {
+  0%, 72% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 @keyframes fallPetal1 {
   0% {
     transform: translate(0, -10px) rotate(0deg);
@@ -303,5 +379,10 @@
 
   .marquee-track {
     animation: none !important;
+  }
+
+  .startup-overlay,
+  .page-transition.is-active {
+    display: none !important;
   }
 }
