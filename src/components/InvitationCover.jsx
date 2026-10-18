@@ -19,7 +19,7 @@ export default function InvitationCover({ onOpen }) {
       return undefined;
     }
 
-    const timer = setTimeout(() => setHasStarted(true), 1350);
+    const timer = setTimeout(() => setHasStarted(true), 1850);
     return () => clearTimeout(timer);
   }, []);
 
@@ -48,11 +48,11 @@ export default function InvitationCover({ onOpen }) {
     // Give the frame a moment to appear before moving into the invitation.
     openTimers.current.push(setTimeout(() => {
       scrollToContent();
-    }, 1900));
+    }, 2650));
 
     openTimers.current.push(setTimeout(() => {
       setIsTransitioning(false);
-    }, 2000));
+    }, 3100));
   };
 
   const scrollToContent = () => {
@@ -231,6 +231,11 @@ export default function InvitationCover({ onOpen }) {
         <div className="startup-overlay__panel startup-overlay__panel--top" />
         <div className="startup-overlay__panel startup-overlay__panel--bottom" />
         <div className="startup-overlay__content">
+          <div className="startup-rings">
+            <span className="startup-ring startup-ring--left" />
+            <span className="startup-ring startup-ring--right" />
+            <span className="startup-ring__sparkle">✦</span>
+          </div>
           <span className="startup-overlay__eyebrow">A new chapter begins</span>
           <span className="startup-overlay__names">{weddingConfig.couple.displayNames}</span>
           <span className="startup-overlay__rule" />
@@ -240,6 +245,13 @@ export default function InvitationCover({ onOpen }) {
       <div className={`page-transition ${isTransitioning ? 'is-active' : ''}`} aria-hidden="true">
         <div className="page-transition__panel page-transition__panel--top" />
         <div className="page-transition__panel page-transition__panel--bottom" />
+        <div className="page-transition__card">
+          <img src="/images/florals/rose-garland-horizontal.webp" alt="" aria-hidden="true" />
+          <span>With God's Blessings</span>
+          <strong>{weddingConfig.couple.displayNames}</strong>
+          <small>Grand Wedding Reception</small>
+          <i />
+        </div>
         <div className="page-transition__glow" />
         <div className="page-transition__mark">
           <span>With God's Blessings</span>

@@ -91,6 +91,26 @@
   100% { opacity: 0; transform: translateY(-12px) scale(0.96); }
 }
 
+@keyframes ringExchangeLeft {
+  0% { opacity: 0; transform: translateX(-34px) rotate(-28deg) rotateY(55deg); }
+  25% { opacity: 1; transform: translateX(-15px) rotate(-18deg) rotateY(20deg); }
+  62% { opacity: 1; transform: translateX(10px) rotate(-7deg) rotateY(0deg); }
+  100% { opacity: 1; transform: translateX(13px) rotate(-7deg) rotateY(0deg); }
+}
+
+@keyframes ringExchangeRight {
+  0% { opacity: 0; transform: translateX(34px) rotate(28deg) rotateY(-55deg); }
+  25% { opacity: 1; transform: translateX(15px) rotate(18deg) rotateY(-20deg); }
+  62% { opacity: 1; transform: translateX(-10px) rotate(7deg) rotateY(0deg); }
+  100% { opacity: 1; transform: translateX(-13px) rotate(7deg) rotateY(0deg); }
+}
+
+@keyframes ringSparkle {
+  0%, 42% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) rotate(-30deg); }
+  58% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(0deg); }
+  75%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.55) rotate(25deg); }
+}
+
 @keyframes pageTransitionTop {
   0%, 32% { transform: translateY(0) rotateX(0deg); }
   100% { transform: translateY(-108%) rotateX(-5deg); }
@@ -111,6 +131,29 @@
   0%, 30% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
   48% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes pageTransitionCard {
+  0%, 18% {
+    opacity: 0;
+    transform: translate(-50%, -42%) translateY(90px) rotateX(62deg) rotateZ(-2deg) scale(0.72);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(18px) rotateX(18deg) rotateZ(-1deg) scale(0.92);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateZ(0deg) scale(1);
+  }
+  84% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(-4px) rotateX(0deg) rotateZ(0deg) scale(1.01);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-28px) rotateX(-4deg) scale(1.04);
+  }
 }
 
 @keyframes fadeOutTransition {
