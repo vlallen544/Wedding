@@ -149,7 +149,6 @@ export default function FamilyInvitation() {
               border: '1px solid var(--color-border-blue)',
               fontSize: '0.95rem',
               color: 'var(--color-text-main)',
-              fontStyle: 'normal',
               fontWeight: 500,
               textDecoration: 'none',
             }}>

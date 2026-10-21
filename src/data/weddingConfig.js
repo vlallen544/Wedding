@@ -27,6 +27,18 @@ export const weddingConfig = {
     signature: "Jose Antony & family",
   },
 
+  // WhatsApp/Web Share copy is intentionally formatted as a short forwarded
+  // invitation, matching the message layout guests see in the reference.
+  sharing: {
+    title: "Nihal and Serene Wedding Reception",
+    welcome: "Nihal and Serene warmly welcome you to join them in celebrating their wedding reception.",
+    message: "🕯️ Join us for an evening of joy, celebration, and dinner as we celebrate the Grand Wedding Reception of our children, Nihal & Serene. 🎉💐✨",
+    paragraph: "We look forward to raising a toast, sharing memories, and celebrating this special evening together with you.",
+    action: "💌 Please click the link below to view the Reception invitation and scroll down for all the event and venue details.",
+    closing: "With warm regards and excitement,",
+    signature: "Jose Antony & family",
+  },
+
   // Sacred verse and wedding theme.
   sacredVerse: {
     verse: "Mark 10:9",

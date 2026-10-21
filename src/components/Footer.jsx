@@ -7,6 +7,31 @@ export default function Footer() {
   const { guestGuide } = weddingConfig;
   const littleNote = guestGuide.littleNote;
 
+  const getShareMessage = (includeUrl = true) => {
+    const { sharing } = weddingConfig;
+
+    const lines = [
+      sharing.message,
+      '',
+      sharing.paragraph,
+      '',
+      sharing.action,
+    ];
+
+    if (includeUrl) {
+      lines.push('', `🔗 ${window.location.href}`, '');
+    } else {
+      lines.push('');
+    }
+
+    lines.push(
+      sharing.closing,
+      sharing.signature,
+    );
+
+    return lines.join('\n');
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -15,9 +40,11 @@ export default function Footer() {
   };
 
   const handleShare = async () => {
+    const { sharing } = weddingConfig;
+    const shareMessage = getShareMessage(false);
     const shareData = {
-      title: `${weddingConfig.couple.displayNames} — Grand Wedding Reception`,
-      text: `Join us for the Grand Wedding Reception of ${weddingConfig.couple.invitationNames}!`,
+      title: sharing.title,
+      text: shareMessage,
       url: window.location.href,
     };
 
@@ -35,7 +62,7 @@ export default function Footer() {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
+    navigator.clipboard.writeText(getShareMessage()).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }).catch(() => {
