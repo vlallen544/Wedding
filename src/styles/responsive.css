@@ -1247,3 +1247,129 @@
     line-height: 1.2;
   }
 }
+
+/* iPhone/Safari refinement: keep the hero readable instead of squeezing the
+   portrait and all invitation copy into two narrow columns. */
+@media (max-width: 480px) {
+  .invitation-cover {
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    padding-top: max(1rem, env(safe-area-inset-top)) !important;
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+  }
+
+  .startup-overlay {
+    min-height: 100dvh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  #hero-section .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.45rem !important;
+    text-align: center !important;
+  }
+
+  #hero-section .hero-brand-panel {
+    order: 1 !important;
+    width: 100%;
+    min-height: 0 !important;
+    align-items: center !important;
+    border-left: 0 !important;
+    border-top: 1px solid var(--color-border-gold);
+    padding: 1.4rem 0 0 !important;
+  }
+
+  #hero-section .hero-content {
+    order: 2 !important;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  #hero-section .hero-couple-art {
+    width: min(100%, 250px) !important;
+    max-width: 250px !important;
+    margin-bottom: 1rem;
+  }
+
+  #hero-section .hero-couple-floral {
+    width: 62px !important;
+  }
+
+  #hero-section .hero-content > div:first-child {
+    justify-content: center;
+  }
+
+  #hero-section .hero-content > h2 {
+    font-size: clamp(1.9rem, 9vw, 2.45rem) !important;
+    line-height: 1.1;
+  }
+
+  #hero-section .hero-verse {
+    padding: 0.9rem 1rem !important;
+    text-align: left;
+  }
+
+  #hero-section .hero-verse p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  #hero-section .hero-verse > div {
+    font-size: 0.66rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  #hero-section .hero-intro {
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+  }
+
+  #hero-section .hero-highlights {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem !important;
+  }
+
+  #hero-section .hero-highlights > div {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem 0.35rem !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap;
+  }
+
+  #hero-section .hero-content .btn-primary {
+    width: min(100%, 320px);
+    min-height: 46px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  /* Restore a comfortable minimum for the detailed guide on iPhone. */
+  #event-details .event-summary-card h3 {
+    font-size: 1rem !important;
+  }
+
+  #event-details .event-summary-card > p:not(:first-of-type) {
+    font-size: 0.7rem !important;
+  }
+
+  #event-details .countdown-number {
+    font-size: 1.2rem !important;
+  }
+
+  #event-details .countdown-box > div:last-child {
+    font-size: 0.52rem !important;
+  }
+
+  #event-details .dress-guidance-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #event-details .dress-guidance-card p:last-child {
+    font-size: 0.76rem !important;
+    line-height: 1.5 !important;
+  }
+}
