@@ -1373,3 +1373,119 @@
     line-height: 1.5 !important;
   }
 }
+
+/* Short iPhone landscape screens have plenty of width but very little height.
+   Scale the opening composition as a single unit so it does not become a
+   tall portrait layout that requires an awkward first scroll. */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
+  .invitation-cover {
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    justify-content: flex-start !important;
+    padding: max(0.55rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(0.65rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)) !important;
+  }
+
+  .cover-header {
+    margin-bottom: 0.45rem !important;
+  }
+
+  .cover-header .section-subtitle {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .cover-header h1 {
+    font-size: clamp(1.45rem, 4.2vw, 1.9rem) !important;
+    line-height: 1.05;
+  }
+
+  .cover-header .cross-divider {
+    margin-top: 0.4rem;
+  }
+
+  .envelope-container {
+    width: min(56vw, 420px);
+    height: 188px;
+  }
+
+  .envelope-flap {
+    height: 94px;
+  }
+
+  .envelope-pocket {
+    height: 116px;
+  }
+
+  .envelope-letter {
+    height: 170px;
+    padding: 0.55rem;
+  }
+
+  .envelope-letter img {
+    width: 92px !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .envelope-letter p:first-of-type {
+    font-size: 0.82rem !important;
+  }
+
+  .envelope-letter h2 {
+    font-size: 1rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .envelope-letter p:last-of-type {
+    font-size: 0.62rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .wax-seal-btn {
+    width: 48px;
+    height: 48px;
+    left: calc(50% - 24px);
+    bottom: -21px;
+  }
+
+  .envelope-container.is-open {
+    transform: rotateX(1deg) rotateY(0deg) translateY(18px) !important;
+  }
+
+  .cover-actions {
+    width: min(100%, 270px);
+    margin-top: 0.85rem !important;
+    gap: 0.45rem !important;
+  }
+
+  .cover-actions .btn-primary {
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.64rem;
+  }
+
+  .section-scroll-hint {
+    margin-top: 0.45rem !important;
+    font-size: 0.52rem !important;
+  }
+
+  .cover-floral {
+    width: 120px;
+  }
+
+  .cover-floral--tl {
+    top: -18px;
+    left: -30px;
+  }
+
+  .cover-floral--br {
+    right: -32px;
+    bottom: -24px;
+    width: 135px;
+  }
+
+  .cover-floral-garland {
+    width: min(42vw, 320px);
+    bottom: 0.5%;
+  }
+}
