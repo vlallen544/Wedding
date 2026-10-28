@@ -405,7 +405,10 @@ p {
 
 .marquee-strip {
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
+  contain: paint;
+  clip-path: inset(0);
   padding: 0.72rem 0;
   border-top: 1px solid rgba(216, 196, 154, 0.32);
   border-bottom: 1px solid rgba(216, 196, 154, 0.32);
@@ -421,6 +424,7 @@ p {
   gap: 1.5rem;
   white-space: nowrap;
   animation: marqueeRun 28s linear infinite;
+  will-change: transform;
   color: var(--color-gold-dark);
   font-family: var(--font-serif-accent);
   font-size: 0.82rem;
