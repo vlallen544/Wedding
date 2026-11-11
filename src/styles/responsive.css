@@ -30,6 +30,8 @@
     font-size: 1.85rem;
   }
 
+  .envelope-entrance.is-open { margin-top: 118px; }
+
   /* Envelope scaling on narrow phones */
   .envelope-container {
     width: 90vw;
@@ -49,13 +51,13 @@
     padding: 1rem;
   }
 
-  .envelope-letter.extracted {
-    transform: translateY(-90px) translateZ(20px);
-    animation-name: letterLiftMobile;
+  .envelope-container {
+    --letter-lift: -90px;
+    --letter-clearance: -125px;
   }
 
   .envelope-container.is-open {
-    transform: rotateX(1deg) rotateY(0deg) translateY(48px);
+    transform: rotateX(1deg) rotateY(0deg);
   }
 
   .wax-seal-btn {
@@ -174,12 +176,13 @@
     font-size: 0.75rem !important;
   }
 
-  .envelope-letter.extracted {
-    transform: translateY(-76px) translateZ(20px);
+  .envelope-container {
+    --letter-lift: -76px;
+    --letter-clearance: -110px;
   }
 
   .envelope-container.is-open {
-    transform: rotateX(1deg) rotateY(0deg) translateY(42px);
+    transform: rotateX(1deg) rotateY(0deg);
   }
 
   .cover-actions {
@@ -1253,13 +1256,11 @@
 @media (max-width: 480px) {
   .invitation-cover {
     min-height: 100svh !important;
-    min-height: 100dvh !important;
     padding-top: max(1rem, env(safe-area-inset-top)) !important;
     padding-bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
   }
 
   .startup-overlay {
-    min-height: 100dvh;
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
   }
@@ -1380,7 +1381,6 @@
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
   .invitation-cover {
     min-height: 100svh !important;
-    min-height: 100dvh !important;
     justify-content: flex-start !important;
     padding: max(0.55rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(0.65rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)) !important;
   }
@@ -1404,7 +1404,11 @@
     margin-top: 0.4rem;
   }
 
+  .envelope-entrance.is-open { margin-top: 94px; }
+
   .envelope-container {
+    --letter-lift: -58px;
+    --letter-clearance: -88px;
     width: min(56vw, 420px);
     height: 188px;
   }
@@ -1449,7 +1453,7 @@
   }
 
   .envelope-container.is-open {
-    transform: rotateX(1deg) rotateY(0deg) translateY(18px) !important;
+    transform: rotateX(1deg) rotateY(0deg) !important;
   }
 
   .cover-actions {

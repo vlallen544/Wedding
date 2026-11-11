@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import './styles/global.css';
 import './styles/animations.css';
 import './styles/responsive.css';
+import './styles/browser-fixes.css';
 
 export default function App() {
   useLayoutEffect(() => {
@@ -34,7 +35,10 @@ export default function App() {
       resetToCover();
       window.requestAnimationFrame(resetToCover);
     });
-    const handlePageShow = () => {
+    const handlePageShow = event => {
+      // Safari restores this page from its back/forward cache after guests
+      // return from Maps. Preserve their place in the invitation in that case.
+      if (event.persisted) return;
       resetToCover();
       window.requestAnimationFrame(resetToCover);
     };

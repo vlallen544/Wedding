@@ -161,24 +161,25 @@ p {
   animation-delay: 0.12s;
 }
 
-.invitation-cover.cover-booting .cover-header,
-.invitation-cover.cover-booting .envelope-3d-scene,
-.invitation-cover.cover-booting .cover-actions,
-.invitation-cover.cover-booting .section-scroll-hint {
-  opacity: 0;
+.invitation-cover .cover-header {
+  animation: coverHeaderEnter 0.7s 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.invitation-cover.cover-ready .cover-header {
-  animation: coverHeaderEnter 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+.envelope-entrance {
+  width: 100%;
+  transition: margin-top var(--transition-envelope);
+  /* Animate a wrapper so opacity never flattens the envelope's 3D layers. */
+  animation: coverEnvelopeEnter 0.8s 0.75s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.invitation-cover.cover-ready .envelope-3d-scene {
-  animation: coverEnvelopeEnter 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+.envelope-entrance.is-open {
+  /* Reserve room for the raised flap instead of drawing it over the names. */
+  margin-top: 160px;
 }
 
-.invitation-cover.cover-ready .cover-actions,
-.invitation-cover.cover-ready .section-scroll-hint {
-  animation: coverActionsEnter 0.7s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+.invitation-cover .cover-actions,
+.invitation-cover .section-scroll-hint {
+  animation: coverActionsEnter 0.6s 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 .startup-overlay {
@@ -189,8 +190,7 @@ p {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: var(--color-warm-ivory);
-  perspective: 900px;
+  /* The moving panels reveal the cover, without an opaque layer behind them. */
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
@@ -208,13 +208,12 @@ p {
     linear-gradient(160deg, var(--color-warm-ivory), var(--color-ice-blue));
   border-color: rgba(216, 196, 154, 0.42);
   box-shadow: 0 14px 35px rgba(36, 48, 62, 0.08);
-  transform-style: preserve-3d;
 }
 
 .startup-overlay__panel {
   height: 51%;
-  animation-duration: 2.3s;
-  animation-delay: 0.18s;
+  animation-duration: 0.9s;
+  animation-delay: 1.35s;
   animation-timing-function: cubic-bezier(0.65, 0, 0.2, 1);
   animation-fill-mode: both;
 }
@@ -240,7 +239,7 @@ p {
   gap: 0.7rem;
   color: var(--color-text-main);
   text-align: center;
-  animation: startupContentExit 2.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: startupContentExit 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .startup-rings {

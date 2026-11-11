@@ -2,16 +2,13 @@
 
 @keyframes sealPulse {
   0% {
-    box-shadow: 0 4px 15px rgba(216, 196, 154, 0.4);
-    transform: scale(1);
+    transform: translateZ(1px) scale(1);
   }
   50% {
-    box-shadow: 0 8px 25px rgba(216, 196, 154, 0.7);
-    transform: scale(1.03);
+    transform: translateZ(1px) scale(1.03);
   }
   100% {
-    box-shadow: 0 4px 15px rgba(216, 196, 154, 0.4);
-    transform: scale(1);
+    transform: translateZ(1px) scale(1);
   }
 }
 
@@ -56,11 +53,11 @@
 @keyframes coverEnvelopeEnter {
   from {
     opacity: 0;
-    transform: translateY(34px) rotateX(8deg) rotateY(-5deg) scale(0.94);
+    transform: translateY(24px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotateX(3deg) rotateY(-1deg) scale(1);
+    transform: none;
   }
 }
 
@@ -172,19 +169,13 @@
 
 @keyframes letterLift {
   0% {
-    transform: translateY(0) translateZ(0) rotateX(0deg) rotateZ(0deg);
+    transform: translate3d(0, 0, 0);
+  }
+  60% {
+    transform: translate3d(0, var(--letter-clearance), 0);
   }
   100% {
-    transform: translateY(-130px) translateZ(80px) rotateX(2deg) rotateZ(-1deg);
-  }
-}
-
-@keyframes letterLiftMobile {
-  0% {
-    transform: translateY(0) translateZ(0) rotateX(0deg) rotateZ(0deg);
-  }
-  100% {
-    transform: translateY(-90px) translateZ(20px) rotateX(2deg) rotateZ(-1deg);
+    transform: translate3d(0, var(--letter-lift), 40px) rotateZ(-1deg);
   }
 }
 
@@ -199,18 +190,19 @@
 }
 
 .envelope-container {
+  --letter-lift: -130px;
+  --letter-clearance: -170px;
   width: min(92vw, 480px);
   height: 320px;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(3deg) rotateY(-1deg);
-  transition: transform var(--transition-envelope), filter var(--transition-envelope);
+  -webkit-transform-style: preserve-3d;
+  transition: transform var(--transition-envelope);
 }
 
 .envelope-container.is-open {
-  /* Give the lifted invitation more breathing room below the couple names. */
-  transform: rotateX(1deg) rotateY(0deg) translateY(72px);
-  filter: drop-shadow(0 28px 30px rgba(36, 48, 62, 0.12));
+  transform: rotateX(1deg) rotateY(0deg);
 }
 
 .envelope-base {
@@ -232,23 +224,57 @@
   height: 160px;
   transform-origin: top center;
   transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s;
+  -webkit-transform-style: preserve-3d;
+  transform: translateZ(18px) rotateX(0deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
 }
 
 .envelope-flap.open {
-  transform: rotateX(180deg);
+  transform: translateZ(-2px) rotateX(180deg);
   z-index: 1;
 }
 
 .flap-triangle {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0.5px);
+  transition: visibility 0s 0.4s;
+}
+
+.flap-triangle::before {
+  /* Keep clipping on the face's child: WebKit must cull the unmasked face
+     before rasterizing its triangle, or the reverse can show when closed. */
+  content: '';
+  position: absolute;
+  inset: 0;
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
   background: linear-gradient(180deg, #F5F2EB 0%, #D8E7EE 100%);
   border-top: 1px solid var(--color-border-gold);
-  filter: drop-shadow(0 4px 8px rgba(36, 48, 62, 0.1));
-  backface-visibility: hidden;
+}
+
+.flap-triangle--back {
+  transform: rotateX(180deg) translateZ(0.5px);
+  visibility: hidden;
+}
+
+/* Swap the faces while the flap is edge-on. This also covers WebKit builds
+   that paint a clipped back face despite backface-visibility: hidden. */
+.envelope-flap.open .flap-triangle--front {
+  visibility: hidden;
+}
+
+.envelope-flap.open .flap-triangle--back {
+  visibility: visible;
+}
+
+.flap-triangle--back::before {
+  background: linear-gradient(180deg, #D8E7EE, #FAF8F3);
 }
 
 /* Front Pocket */
@@ -278,7 +304,7 @@
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 20px rgba(36, 48, 62, 0.1);
   border: 1px solid var(--color-border-gold);
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+  transform: translate3d(0, 0, 0);
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -289,6 +315,8 @@
 }
 
 .envelope-letter.extracted {
+  /* The explicit endpoint survives animation cancellation in mobile webviews. */
+  transform: translate3d(0, var(--letter-lift), 40px) rotateZ(-1deg);
   animation: letterLift 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
   box-shadow: 0 20px 45px rgba(36, 48, 62, 0.2);
   z-index: 12;
@@ -322,11 +350,14 @@
   color: #FAF8F3;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   z-index: 15;
+  transform: translateZ(1px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   animation: sealPulse 2.8s infinite ease-in-out;
 }
 
 .wax-seal-btn:hover {
-  transform: scale(1.08);
+  transform: translateZ(1px) scale(1.08);
   box-shadow: 0 6px 20px rgba(216, 196, 154, 0.8);
 }
 
@@ -353,17 +384,25 @@
     scroll-behavior: auto !important;
   }
 
-  .envelope-flap {
-    transform: none !important;
+  .envelope-flap.open {
+    transform: translateZ(-2px) rotateX(180deg) !important;
   }
 
   .envelope-letter.extracted {
     animation: none !important;
-    transform: translateY(-20px) !important;
+    transform: translate3d(0, var(--letter-lift), 40px) !important;
   }
 
   .wax-seal-btn {
     animation: none !important;
+  }
+
+  .flap-triangle {
+    transition-delay: 0s;
+  }
+
+  .envelope-entrance {
+    transition: none !important;
   }
 
   .petal {

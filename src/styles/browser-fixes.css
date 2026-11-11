@@ -1,0 +1,77 @@
+/* Loaded after responsive rules so the same envelope state reaches Safari and
+   Chromium. Filters on preserve-3d containers flatten their descendants. */
+.envelope-3d-scene {
+  -webkit-perspective: 1200px;
+}
+.envelope-flap {
+  -webkit-transform-origin: top center;
+}
+.startup-overlay {
+  animation: startupVeilDismiss 2.65s step-end forwards;
+}
+.startup-overlay.is-complete {
+  animation: none;
+}
+@keyframes startupVeilDismiss {
+  0% { visibility: visible; }
+  100% { visibility: hidden; }
+}
+/* Two exact duplicate groups, no track gap: continuous opposing rows. */
+.marquee-strip {
+  contain: none;
+  clip-path: none;
+}
+.marquee-row { overflow: hidden; }
+.marquee-row + .marquee-row { margin-top: .35rem; }
+.marquee-track {
+  gap: 0;
+  will-change: auto;
+  animation: weddingMarqueeLeft 36s linear infinite;
+}
+.marquee-row--right .marquee-track { animation-name: weddingMarqueeRight; }
+.marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}
+@keyframes weddingMarqueeLeft {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes weddingMarqueeRight {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+/* Use the stable viewport for the cover; Safari's toolbar must not resize it
+   during the envelope animation or change the destination of the scroll. */
+.invitation-cover {
+  min-height: 100vh !important;
+}
+@supports (min-height: 100svh) {
+  .invitation-cover { min-height: 100svh !important; }
+}
+@media (max-width: 1024px) {
+  .invitation-cover {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
+  }
+  .envelope-container { max-width: 100%; }
+  .startup-overlay {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+@media (orientation: landscape) and (max-width: 1024px) {
+  .container,
+  .container-narrow {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; transform: none; }
+  .startup-overlay { display: none !important; }
+  html { scroll-behavior: auto; }
+}

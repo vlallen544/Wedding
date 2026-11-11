@@ -59,17 +59,19 @@ export default function HeroSection() {
 
       {/* A quiet running-letter detail inspired by the client's reference. */}
       <div className="marquee-strip" aria-hidden="true">
-        <div className="marquee-track">
-          <span>WITH GOD'S BLESSINGS</span>
-          <b>✦</b>
-          <span>NIHAL &amp; SERENE</span>
-          <b>✦</b>
-          <span>WITH GOD'S BLESSINGS</span>
-          <b>✦</b>
-          <span>NIHAL &amp; SERENE</span>
-          <b>✦</b>
-        </div>
-
+        {[0, 1].map(row => (
+          <div className={`marquee-row ${row === 0 ? 'marquee-row--right' : 'marquee-row--left'}`} key={row}>
+            <div className="marquee-track">
+              {[0, 1].map(copy => (
+                <div className="marquee-group" key={copy}>
+                  {[0, 1, 2, 3].map(item => <React.Fragment key={item}>
+                    <span>{row === 0 ? "WITH GOD’S BLESSINGS" : weddingConfig.couple.displayNames}</span><b>✦</b>
+                  </React.Fragment>)}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>

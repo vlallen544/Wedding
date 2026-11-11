@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Mail, ChevronDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 import SectionScrollHint from './SectionScrollHint';
@@ -9,6 +9,7 @@ export default function InvitationCover({ onOpen }) {
   const [hasBorderAppeared, setHasBorderAppeared] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const openTimers = useRef([]);
+  const opening = useRef(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -18,11 +19,9 @@ export default function InvitationCover({ onOpen }) {
       return undefined;
     }
 
-    // Let the opening veil finish fading before the cover content begins its
-    // own entrance. This prevents a washed-out overlap on mobile browsers.
-    // Keep the opening moment elegant without leaving iPhone users looking at
-    // a blank split screen while Safari finishes its first paint.
-    const timer = setTimeout(() => setHasStarted(true), 2100);
+    // Animation completion normally dismisses the veil. Keep a fallback for
+    // background tabs and iOS webviews that throttle animation events.
+    const timer = setTimeout(() => setHasStarted(true), 2800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,33 +29,53 @@ export default function InvitationCover({ onOpen }) {
     openTimers.current.forEach(clearTimeout);
   }, []);
 
+  useLayoutEffect(() => {
+    if (isOpen && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      // Opening changes the cover's height on short screens. Read the final
+      // layout before navigating so landscape guests land at the hero.
+      document.getElementById('hero-section')?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  }, [isOpen]);
+
   const handleOpen = () => {
+    if (opening.current) return;
     if (isOpen) {
       scrollToContent();
       return;
     }
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    setHasStarted(true);
     setIsOpen(true);
-    // Let the flap lead, then pull the letter forward in a separate depth cue.
+    if (reduceMotion) {
+      setIsExtracted(true);
+      setHasBorderAppeared(true);
+      onOpen?.();
+      return;
+    }
+    opening.current = true;
+    // Clear the flap before lifting the letter; do not scroll mid-animation.
     openTimers.current.push(setTimeout(() => {
       setIsExtracted(true);
       if (onOpen) onOpen();
-    }, 500));
+    }, 800));
 
     // Reveal the architectural frame after the opening moment has landed.
     openTimers.current.push(setTimeout(() => {
       setHasBorderAppeared(true);
-    }, 1500));
+    }, 1650));
 
     // Give the frame a moment to appear before moving into the invitation.
     openTimers.current.push(setTimeout(() => {
+      opening.current = false;
       scrollToContent();
-    }, 1500));
+    }, 2200));
   };
 
   const scrollToContent = () => {
     const heroEl = document.getElementById('hero-section');
     if (heroEl) {
-      heroEl.scrollIntoView({ behavior: 'smooth' });
+      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      heroEl.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
     }
   };
 
@@ -117,78 +136,81 @@ export default function InvitationCover({ onOpen }) {
       </div>
 
       {/* 3D Envelope Scene */}
-      <div className="envelope-3d-scene">
-        <div className={`envelope-container ${isOpen ? 'is-open' : ''}`}>
-          {/* Base / Back of Envelope */}
-          <div className="envelope-base"></div>
+      <div className={`envelope-entrance ${isOpen ? 'is-open' : ''}`}>
+        <div className="envelope-3d-scene">
+          <div className={`envelope-container ${isOpen ? 'is-open' : ''}`}>
+            {/* Base / Back of Envelope */}
+            <div className="envelope-base"></div>
 
-          {/* Inner Letter Card */}
-          <div className={`envelope-letter ${isExtracted ? 'extracted' : ''}`}>
-            {/* Small floral garland topper on inner card */}
-            <img 
-              src="/images/florals/rose-garland-horizontal.webp" 
-              alt="" 
-              aria-hidden="true" 
-              style={{
-                width: '140px',
-                marginBottom: '0.5rem',
-                pointerEvents: 'none',
-                opacity: 0.92,
-              }}
-            />
+            {/* Inner Letter Card */}
+            <div className={`envelope-letter ${isExtracted ? 'extracted' : ''}`}>
+              {/* Small floral garland topper on inner card */}
+              <img
+                src="/images/florals/rose-garland-horizontal.webp"
+                alt=""
+                aria-hidden="true"
+                style={{
+                  width: '140px',
+                  marginBottom: '0.5rem',
+                  pointerEvents: 'none',
+                  opacity: 0.92,
+                }}
+              />
 
-            <p style={{ 
-              fontFamily: 'var(--font-serif-accent)', 
-              fontStyle: 'italic', 
-              fontSize: '1.2rem', 
-              color: 'var(--color-gold-dark)',
-              marginBottom: '0.2rem' 
-            }}>
-              With God's Blessings
-            </p>
-            <h2 style={{ 
-              fontSize: '1.45rem', 
-              letterSpacing: '0.08em', 
-              color: 'var(--color-text-main)',
-              marginBottom: '0.4rem' 
-            }}>
-              {weddingConfig.couple.displayNames}
-            </h2>
-            <p style={{ 
-              fontSize: '0.8125rem', 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.15em', 
-              color: 'var(--color-text-muted)',
-              marginBottom: '0.75rem' 
-            }}>
-              Grand Wedding Reception
-            </p>
-            <div style={{ width: '40px', height: '1px', background: 'var(--color-champagne-gold)', margin: '0 auto 0.75rem' }}></div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-              Kottayam, Kerala
-            </p>
-          </div>
+              <p style={{
+                fontFamily: 'var(--font-serif-accent)',
+                fontStyle: 'italic',
+                fontSize: '1.2rem',
+                color: 'var(--color-gold-dark)',
+                marginBottom: '0.2rem'
+              }}>
+                With God's Blessings
+              </p>
+              <h2 style={{
+                fontSize: '1.45rem',
+                letterSpacing: '0.08em',
+                color: 'var(--color-text-main)',
+                marginBottom: '0.4rem'
+              }}>
+                {weddingConfig.couple.displayNames}
+              </h2>
+              <p style={{
+                fontSize: '0.8125rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                color: 'var(--color-text-muted)',
+                marginBottom: '0.75rem'
+              }}>
+                Grand Wedding Reception
+              </p>
+              <div style={{ width: '40px', height: '1px', background: 'var(--color-champagne-gold)', margin: '0 auto 0.75rem' }}></div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                Kottayam, Kerala
+              </p>
+            </div>
 
-          {/* Envelope Pocket (Front folds) */}
-          <div className="envelope-pocket"></div>
+            {/* Envelope Pocket (Front folds) */}
+            <div className="envelope-pocket"></div>
 
-          {/* Flap with 3D Rotation */}
-          <div className={`envelope-flap ${isOpen ? 'open' : ''}`}>
-            <div className="flap-triangle"></div>
+            {/* Flap with 3D Rotation */}
+            <div className={`envelope-flap ${isOpen ? 'open' : ''}`}>
+              <div className="flap-triangle flap-triangle--front" />
+              <div className="flap-triangle flap-triangle--back" />
 
-            {/* Wax Seal / Tap to Open Button */}
-            {!isOpen && (
-              <button 
-                type="button"
-                className="wax-seal-btn"
-                onClick={handleOpen}
-                aria-label="Tap to open the wedding invitation"
-              >
-                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.9 }}>
-                  Open
-                </span>
-              </button>
-            )}
+              {/* Wax Seal / Tap to Open Button */}
+              {!isOpen && (
+                <button
+                  type="button"
+                  className="wax-seal-btn"
+                  onClick={handleOpen}
+                  aria-label="Tap to open the wedding invitation"
+                >
+                  <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.9 }}>
+                    Open
+                  </span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -225,7 +247,13 @@ export default function InvitationCover({ onOpen }) {
       />
 
       {/* Layered opening veil for the initial load and the cover-to-hero move. */}
-      <div className={`startup-overlay ${hasStarted ? 'is-complete' : ''}`} aria-hidden="true">
+      <div
+        className={`startup-overlay ${hasStarted ? 'is-complete' : ''}`}
+        aria-hidden="true"
+        onAnimationEnd={event => {
+          if (event.animationName === 'startupPanelBottom') setHasStarted(true);
+        }}
+      >
         <div className="startup-overlay__panel startup-overlay__panel--top" />
         <div className="startup-overlay__panel startup-overlay__panel--bottom" />
         <div className="startup-overlay__content">
