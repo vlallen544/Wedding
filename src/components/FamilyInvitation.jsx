@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ScrollText from './ScrollText';
 import { weddingConfig } from '../data/weddingConfig';
 import { ExternalLink, ArrowDown } from 'lucide-react';
 import SectionScrollHint from './SectionScrollHint';
@@ -71,7 +72,7 @@ export default function FamilyInvitation() {
         {/* Section Header */}
         <div className="section-header">
           <p className="section-subtitle">A Heartfelt Message</p>
-          <h2 className="section-title">The Family Invitation</h2>
+          <h2 className="section-title"><ScrollText text="The Family Invitation" direction="right" /></h2>
           <div className="cross-divider" aria-hidden="true">
             <span className="cross-divider-icon" aria-hidden="true" />
           </div>
@@ -148,7 +149,7 @@ export default function FamilyInvitation() {
           {/* Approved Invitation Text */}
           <div className="family-invitation-copy" style={{ fontSize: '1.15rem', lineHeight: 1.9, color: 'var(--color-text-main)', marginBottom: '1.75rem' }}>
             <p style={{ marginBottom: '1.25rem' }}>
-              {invitationMessage.greeting} <strong style={{ color: 'var(--color-text-main)' }}>{invitationMessage.coupleNames}</strong>.
+              {invitationMessage.greeting} <strong style={{ color: 'var(--color-text-main)' }}><ScrollText text={invitationMessage.coupleNames} /></strong>.
             </p>
             <p style={{ marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>
               {invitationMessage.paragraph}

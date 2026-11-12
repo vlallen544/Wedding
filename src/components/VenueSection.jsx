@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollText from './ScrollText';
 import { MapPin, Navigation, AlertCircle } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 import SectionScrollHint from './SectionScrollHint';
@@ -56,7 +57,7 @@ export default function VenueSection() {
         {/* Section Header */}
         <div className="section-header">
           <p className="section-subtitle">Destination &amp; Route</p>
-          <h2 className="section-title">Venue &amp; Directions</h2>
+          <h2 className="section-title"><ScrollText text="Venue & Directions" direction="right" /></h2>
           <div className="cross-divider" aria-hidden="true">
             <span className="cross-divider-icon" aria-hidden="true" />
           </div>
@@ -118,7 +119,7 @@ export default function VenueSection() {
                 color: 'var(--color-text-main)',
                 marginBottom: '0.75rem',
               }}>
-                {venue.name}
+                <ScrollText text={venue.name} />
               </h3>
 
               <p style={{

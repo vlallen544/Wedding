@@ -1,0 +1,2 @@
+/* Visible by default, including without animation APIs or with reduced motion. */
+.scroll-text .scroll-word { display: inline-block; }

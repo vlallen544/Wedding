@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollText from './ScrollText';
 import { Heart, Calendar, MapPin, ArrowDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 import SectionScrollHint from './SectionScrollHint';
@@ -125,7 +126,7 @@ export default function HeroSection() {
               marginBottom: '1rem',
               lineHeight: 1.15
             }}>
-              {weddingConfig.couple.displayNames}
+              <ScrollText text={weddingConfig.couple.displayNames} />
             </h2>
 
             {/* Sacred verse */}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ScrollText from './ScrollText';
 import { Calendar, Clock, Sparkles, AlertCircle, Shirt, ShieldCheck } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 import SectionScrollHint from './SectionScrollHint';
@@ -91,7 +92,7 @@ export default function EventDetails() {
         {/* Section Header */}
         <div className="section-header">
           <p className="section-subtitle">Save The Date</p>
-          <h2 className="section-title">Reception Details</h2>
+          <h2 className="section-title"><ScrollText text="Reception Details" /></h2>
           <div className="cross-divider" aria-hidden="true">
             <span className="cross-divider-icon" aria-hidden="true" />
           </div>

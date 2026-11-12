@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ScrollText from './ScrollText';
 import { ArrowUp, Share2, Check } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 
@@ -177,7 +178,7 @@ export default function Footer() {
             marginTop: '0.35rem',
             letterSpacing: '0.04em',
           }}>
-            {littleNote.signoffNames}
+            <ScrollText text={littleNote.signoffNames} direction="right" />
           </p>
         </div>
 
@@ -190,7 +191,7 @@ export default function Footer() {
           color: 'var(--color-text-main)',
           marginBottom: '1rem',
         }}>
-          {weddingConfig.couple.displayNames}
+          <ScrollText text={weddingConfig.couple.displayNames} />
         </h2>
 
         <p style={{
