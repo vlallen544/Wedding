@@ -10,6 +10,7 @@ import './styles/global.css';
 import './styles/animations.css';
 import './styles/responsive.css';
 import './styles/browser-fixes.css';
+import './styles/engagement-theme.css';
 
 export default function App() {
   useLayoutEffect(() => {

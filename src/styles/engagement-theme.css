@@ -1,0 +1,226 @@
+/* Visual theme only. Existing wedding content, layout structure and animation
+   state remain owned by their original components and browser-fix styles. */
+:root {
+  --ui-berry: #7d283c;
+  --ui-script: 'Great Vibes', 'Cormorant Garamond', Georgia, serif;
+  /* Retain the existing token names so no component/configuration needs edits. */
+  --color-powder-blue: #e8d9ca;
+  --color-ice-blue: #f3e7da;
+  --color-cloud-blue: #eee2d8;
+  --color-sky-soft: #eadccd;
+  --color-warm-ivory: #f8f2e9;
+  --color-pearl-white: #fffaf3;
+  --color-champagne-gold: #d7b980;
+  --color-gold-dark: #96733d;
+  --color-gold-light: #f3e7ce;
+  --color-gold-foil: rgb(207 173 107 / 22%);
+  --color-text-main: #3a252b;
+  --color-text-muted: #786269;
+  --color-text-light: #8d7378;
+  --color-border-gold: rgb(186 149 92 / 45%);
+  --color-border-blue: #d6bca9;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-subheading: 'Inter', system-ui, sans-serif;
+  --shadow-soft: 0 10px 30px -10px rgb(58 21 28 / 8%);
+  --shadow-card: 0 18px 40px rgb(58 21 28 / 10%);
+  --shadow-gold: 0 5px 18px rgb(58 21 28 / 13%);
+}
+
+body { font-style: normal; }
+body::before {
+  background:
+    radial-gradient(ellipse at 10% 25%, rgb(233 219 208 / 50%), transparent 50%),
+    radial-gradient(ellipse at 90% 70%, rgb(215 185 128 / 12%), transparent 55%);
+}
+.wedding-app .section-subtitle {
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: .18em;
+}
+.wedding-app .section-title {
+  font-family: var(--ui-script);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ui-berry);
+}
+.wedding-app #event-details .section-title {
+  /* Keep script lettering readable above the existing compact details cards. */
+  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+}
+.wedding-app .cross-divider-icon,
+.wedding-app .christian-cross { color: var(--color-champagne-gold); }
+
+/* The same burgundy unboxing, warm paper and gold seal as the engagement. */
+.wedding-app .invitation-cover {
+  background:
+    radial-gradient(ellipse at 20% 10%, #a94e5b44, transparent 45%),
+    radial-gradient(ellipse at 80% 85%, #9b5c4433, transparent 55%),
+    linear-gradient(125deg, #290b15, #5c192b 48%, #2b0b16);
+}
+.wedding-app .cover-header {
+  --color-text-main: #fff5e5;
+  --color-gold-dark: #e5cb98;
+}
+.wedding-app .cover-header h1 {
+  font-family: var(--ui-script);
+  font-size: clamp(3.5rem, 6.5vw, 5.5rem) !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0 !important;
+}
+.wedding-app .cover-header .section-subtitle { font-size: .7rem; }
+.wedding-app .cover-floral { opacity: .45; }
+.wedding-app .cover-floral-garland { opacity: .12; }
+.wedding-app .envelope-base {
+  background: linear-gradient(145deg, #fff8ef, #eadacd);
+  box-shadow: 0 25px 60px #13040d60;
+}
+.wedding-app .envelope-pocket { background: linear-gradient(#f5e9dc, #fff7ec); }
+.wedding-app .flap-triangle--front::before { background: linear-gradient(#fff6ea, #e9d8c6); }
+.wedding-app .flap-triangle--back::before { background: linear-gradient(#e9d8c6, #fff6ea); }
+.wedding-app .envelope-letter { background: #fff9ef; }
+.wedding-app .envelope-letter h2 {
+  font-family: var(--ui-script);
+  font-size: 1.9rem !important;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0 !important;
+}
+.wedding-app .wax-seal-btn { color: #61283a; font-weight: 600; }
+.wedding-app .wax-seal-face {
+  background: radial-gradient(circle at 35% 25%, #f3dfb0, #cfad6b 68%, #9e783b);
+  border-color: #e5d5b3;
+}
+.wedding-app .invitation-cover .section-scroll-hint { color: #e7d1a7; }
+.wedding-app .startup-overlay { --color-text-main: #4e2330; }
+.wedding-app .startup-overlay__panel {
+  background:
+    linear-gradient(135deg, #ffffffb3, transparent 42%),
+    linear-gradient(160deg, #fff6e9, #ead9c9);
+}
+.wedding-app .startup-overlay__names {
+  font-family: var(--ui-script);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+/* Existing sections keep their structure, with the engagement's paper finish. */
+#hero-section {
+  background: radial-gradient(ellipse at 10% 65%, #e9dbd0aa, transparent 45%), #f8f2e9 !important;
+}
+#family-invitation { background: #e8dbd3 !important; }
+#event-details { background: linear-gradient(180deg, #fffaf3, #f1e6dc) !important; }
+#venue-section { background: #eee2d8 !important; }
+.wedding-app .marquee-strip {
+  background: #fff9f080;
+  border-color: var(--color-border-gold);
+}
+.wedding-app .hero-brand-panel { border-left-color: #c7aa82; }
+.wedding-app .hero-couple-image {
+  border-color: #d7b990;
+  box-shadow: 0 15px 35px #3a151c2b;
+}
+.wedding-app .hero-couple-art::before {
+  border-color: #ba955c;
+  background: #642035;
+  box-shadow: 0 18px 38px #3a151c15;
+}
+.wedding-app .hero-content > h2,
+.wedding-app #closing-section > .container-narrow > h2 {
+  font-family: var(--ui-script);
+  font-size: clamp(3rem, 5vw, 4.7rem) !important;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.wedding-app .hero-content > h2 { color: var(--ui-berry) !important; }
+.wedding-app .hero-verse {
+  background: #fff9f1d9 !important;
+  border-left-color: #ba955c !important;
+  border-radius: 0 3px 3px 0 !important;
+}
+.wedding-app .paper-card {
+  border-color: #ceb08a;
+  border-radius: 3px;
+  background: #fffaf3;
+  box-shadow: 0 18px 40px #3a151c13;
+}
+.wedding-app .paper-card::before {
+  border: 1px solid #d5bfa077;
+  border-radius: 0;
+}
+.wedding-app .family-invitation-card {
+  background: linear-gradient(125deg, #fff9f1, #f7ece4) !important;
+  box-shadow: 0 24px 60px #3a151c1b, 5px 5px 0 #f5eadd, 6px 6px 0 #c7aa82;
+}
+.wedding-app .family-invitation-copy strong {
+  font-family: var(--ui-script);
+  font-size: 1.6em;
+  font-weight: 400;
+  color: var(--ui-berry) !important;
+}
+.wedding-app .event-countdown-card,
+.wedding-app .dress-code-card { background: #fff9f1 !important; }
+.wedding-app .countdown-number { color: var(--ui-berry) !important; font-weight: 400 !important; }
+.wedding-app .evening-vibe-card { background: #f1e3d6 !important; }
+.wedding-app .venue-card-content { background: #fff9f0; }
+.wedding-app .venue-card-content h3 { color: var(--ui-berry) !important; }
+
+.wedding-app .btn-primary {
+  color: #fff5e5;
+  background: var(--ui-berry);
+  border-color: var(--ui-berry);
+  box-shadow: 0 5px 18px #3a151c18;
+  font-weight: 500;
+}
+.wedding-app .btn-primary:hover { background: #642035; border-color: #642035; }
+.wedding-app .btn-secondary { border-color: #c7aa82; }
+.wedding-app .invitation-cover .btn-primary,
+.wedding-app #closing-section .btn-primary {
+  color: #4e2330;
+  background: linear-gradient(135deg, #fff7e9, #e7d3ac);
+  border-color: #d7b980;
+  box-shadow: 0 5px 18px #18050c35;
+}
+.wedding-app .invitation-cover .btn-primary:hover,
+.wedding-app #closing-section .btn-primary:hover { background: #fff2d8; }
+
+/* Dark closing section, with the existing guest note kept on ivory paper. */
+#closing-section {
+  --color-text-main: #fff4e3;
+  --color-text-muted: #dfcbc6;
+  --color-text-light: #dfcbc6;
+  --color-gold-dark: #e3c593;
+  background: radial-gradient(ellipse at 50% 10%, #77304355, transparent 65%), #390f1e !important;
+}
+#closing-section > img { opacity: .35 !important; }
+.wedding-app .guest-note-card {
+  --color-text-main: #3a252b;
+  --color-text-muted: #786269;
+  --color-gold-dark: #96733d;
+  background: #fff9f1 !important;
+}
+.wedding-app .guest-note-card > p:last-child {
+  font-family: var(--ui-script) !important;
+  font-size: 2.4rem !important;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0 !important;
+}
+#closing-section .btn-secondary { color: #ead2a6; border-color: #a4816266; }
+
+@media (max-width: 480px) {
+  .wedding-app .cover-header h1 { font-size: clamp(2.6rem, 14vw, 3.7rem) !important; }
+  .wedding-app .envelope-letter h2 { font-size: 1.6rem !important; }
+  .wedding-app .section-title { font-size: clamp(2.5rem, 11vw, 3.2rem); }
+  .wedding-app .hero-content > h2 { font-size: clamp(2.8rem, 12vw, 3.6rem) !important; }
+}
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
+  .wedding-app .cover-header h1 { font-size: clamp(1.8rem, 6vw, 2.4rem) !important; }
+  .wedding-app .envelope-letter h2 { font-size: 1.35rem !important; }
+}
