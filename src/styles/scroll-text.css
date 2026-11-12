@@ -1,2 +1,5 @@
 /* Visible by default, including without animation APIs or with reduced motion. */
 .scroll-text .scroll-word { display: inline-block; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-text .scroll-word { opacity: 1 !important; transform: none !important; }
+}
