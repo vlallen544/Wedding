@@ -47,10 +47,23 @@
 /* Use the stable viewport for the cover; Safari's toolbar must not resize it
    during the envelope animation or change the destination of the scroll. */
 .invitation-cover {
-  min-height: 100vh !important;
+  min-height: var(--cover-fallback-height, 100vh) !important;
+  overflow-anchor: none;
 }
 @supports (min-height: 100svh) {
   .invitation-cover { min-height: 100svh !important; }
+}
+.invitation-cover[data-opening-phase='preparing'],
+.invitation-cover[data-opening-phase='flap'],
+.invitation-cover[data-opening-phase='letter'] {
+  /* A toolbar-height change must not move the stage while it is opening. */
+  min-height: var(--cover-opening-height, 100vh) !important;
+}
+.envelope-3d-scene,
+.envelope-container,
+.envelope-flap {
+  overflow: visible;
+  filter: none;
 }
 @media (max-width: 1024px) {
   .invitation-cover {
@@ -59,8 +72,16 @@
   }
   .envelope-container { max-width: 100%; }
   .startup-overlay {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .invitation-cover {
+    padding-top: max(1rem, env(safe-area-inset-top)) !important;
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
   }
 }
 @media (orientation: landscape) and (max-width: 1024px) {

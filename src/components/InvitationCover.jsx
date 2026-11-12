@@ -1,87 +1,21 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React from 'react';
+import useInvitationOpening from '../hooks/useInvitationOpening';
 import { Mail, ChevronDown } from 'lucide-react';
 import { weddingConfig } from '../data/weddingConfig';
 import SectionScrollHint from './SectionScrollHint';
 
 export default function InvitationCover({ onOpen }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isExtracted, setIsExtracted] = useState(false);
-  const [hasBorderAppeared, setHasBorderAppeared] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const openTimers = useRef([]);
-  const opening = useRef(false);
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-      setHasStarted(true);
-      return undefined;
-    }
-
-    // Animation completion normally dismisses the veil. Keep a fallback for
-    // background tabs and iOS webviews that throttle animation events.
-    const timer = setTimeout(() => setHasStarted(true), 2800);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => () => {
-    openTimers.current.forEach(clearTimeout);
-  }, []);
-
-  useLayoutEffect(() => {
-    if (isOpen && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-      // Opening changes the cover's height on short screens. Read the final
-      // layout before navigating so landscape guests land at the hero.
-      document.getElementById('hero-section')?.scrollIntoView({ behavior: 'instant', block: 'start' });
-    }
-  }, [isOpen]);
-
-  const handleOpen = () => {
-    if (opening.current) return;
-    if (isOpen) {
-      scrollToContent();
-      return;
-    }
-    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    setHasStarted(true);
-    setIsOpen(true);
-    if (reduceMotion) {
-      setIsExtracted(true);
-      setHasBorderAppeared(true);
-      onOpen?.();
-      return;
-    }
-    opening.current = true;
-    // Clear the flap before lifting the letter; do not scroll mid-animation.
-    openTimers.current.push(setTimeout(() => {
-      setIsExtracted(true);
-      if (onOpen) onOpen();
-    }, 800));
-
-    // Reveal the architectural frame after the opening moment has landed.
-    openTimers.current.push(setTimeout(() => {
-      setHasBorderAppeared(true);
-    }, 1650));
-
-    // Give the frame a moment to appear before moving into the invitation.
-    openTimers.current.push(setTimeout(() => {
-      opening.current = false;
-      scrollToContent();
-    }, 2200));
-  };
-
-  const scrollToContent = () => {
-    const heroEl = document.getElementById('hero-section');
-    if (heroEl) {
-      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-      heroEl.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
-    }
-  };
+  const {
+    coverRef, phase, hasStarted, isOpen, isFlapOpen, isExtracted,
+    hasBorderAppeared, handleOpen, handleViewDetails, dismissStartup,
+    onFlapTransitionEnd, onLetterAnimationEnd,
+  } = useInvitationOpening(onOpen);
 
   return (
     <section 
-      id="invitation-cover" 
+      id="invitation-cover"
+      ref={coverRef}
+      data-opening-phase={phase}
       className={`section-wrapper invitation-cover ${hasStarted ? 'cover-ready' : 'cover-booting'} ${hasBorderAppeared ? 'cover-border-visible' : ''}`}
       style={{
         minHeight: '100vh',
@@ -143,7 +77,7 @@ export default function InvitationCover({ onOpen }) {
             <div className="envelope-base"></div>
 
             {/* Inner Letter Card */}
-            <div className={`envelope-letter ${isExtracted ? 'extracted' : ''}`}>
+            <div className={`envelope-letter ${isExtracted ? 'extracted' : ''}`} onAnimationEnd={onLetterAnimationEnd}>
               {/* Small floral garland topper on inner card */}
               <img
                 src="/images/florals/rose-garland-horizontal.webp"
@@ -193,7 +127,7 @@ export default function InvitationCover({ onOpen }) {
             <div className="envelope-pocket"></div>
 
             {/* Flap with 3D Rotation */}
-            <div className={`envelope-flap ${isOpen ? 'open' : ''}`}>
+            <div className={`envelope-flap ${isFlapOpen ? 'open' : ''}`} onTransitionEnd={onFlapTransitionEnd}>
               <div className="flap-triangle flap-triangle--front" />
               <div className="flap-triangle flap-triangle--back" />
 
@@ -205,8 +139,8 @@ export default function InvitationCover({ onOpen }) {
                   onClick={handleOpen}
                   aria-label="Tap to open the wedding invitation"
                 >
-                  <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.9 }}>
-                    Open
+                  <span className="wax-seal-face" aria-hidden="true">
+                    <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.9 }}>Open</span>
                   </span>
                 </button>
               )}
@@ -231,7 +165,7 @@ export default function InvitationCover({ onOpen }) {
           <button 
             type="button" 
             className="btn-primary" 
-            onClick={scrollToContent}
+            onClick={handleViewDetails}
             aria-label="Scroll to read reception details"
           >
             <span>View Full Details</span>
@@ -251,7 +185,7 @@ export default function InvitationCover({ onOpen }) {
         className={`startup-overlay ${hasStarted ? 'is-complete' : ''}`}
         aria-hidden="true"
         onAnimationEnd={event => {
-          if (event.animationName === 'startupPanelBottom') setHasStarted(true);
+          if (event.animationName === 'startupPanelBottom') dismissStartup();
         }}
       >
         <div className="startup-overlay__panel startup-overlay__panel--top" />

@@ -30,7 +30,7 @@
     font-size: 1.85rem;
   }
 
-  .envelope-entrance.is-open { margin-top: 118px; }
+  .envelope-entrance.is-open { margin-top: var(--envelope-headroom, 134px); }
 
   /* Envelope scaling on narrow phones */
   .envelope-container {
@@ -1404,7 +1404,7 @@
     margin-top: 0.4rem;
   }
 
-  .envelope-entrance.is-open { margin-top: 94px; }
+  .envelope-entrance.is-open { margin-top: var(--envelope-headroom, 110px); }
 
   .envelope-container {
     --letter-lift: -58px;

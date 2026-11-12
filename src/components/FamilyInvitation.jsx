@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { weddingConfig } from '../data/weddingConfig';
 import { ExternalLink, ArrowDown } from 'lucide-react';
 import SectionScrollHint from './SectionScrollHint';
+
+function FloralAccent({ style, ...props }) {
+  const imageRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (!window.IntersectionObserver) return undefined;
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    observer.observe(imageRef.current);
+    return () => observer.disconnect();
+  }, []);
+  // WebKit can composite an offscreen lazy image's drop-shadow at the viewport
+  // origin. Retain the original shadow only while loaded pixels are in view.
+  return <img {...props} ref={imageRef}
+    style={{ ...style, filter: loaded && visible ? style.filter : 'none' }}
+    onLoad={() => setLoaded(true)} />;
+}
 
 export default function FamilyInvitation() {
   const { invitationMessage } = weddingConfig;
@@ -71,7 +88,7 @@ export default function FamilyInvitation() {
           }}
         >
           {/* Card Corner Floral Accents */}
-          <img
+          <FloralAccent
             src="/images/florals/rose-corner-tr.webp"
             alt=""
             aria-hidden="true"
@@ -86,7 +103,7 @@ export default function FamilyInvitation() {
               filter: 'drop-shadow(0 2px 8px rgba(139, 30, 45, 0.12))',
             }}
           />
-          <img
+          <FloralAccent
             src="/images/florals/rose-corner-bl.webp"
             alt=""
             aria-hidden="true"

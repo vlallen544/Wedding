@@ -167,14 +167,14 @@ p {
 
 .envelope-entrance {
   width: 100%;
-  transition: margin-top var(--transition-envelope);
+  /* Opening space changes once; the hook animates the previous pose with transforms. */
   /* Animate a wrapper so opacity never flattens the envelope's 3D layers. */
   animation: coverEnvelopeEnter 0.8s 0.75s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 .envelope-entrance.is-open {
   /* Reserve room for the raised flap instead of drawing it over the names. */
-  margin-top: 160px;
+  margin-top: var(--envelope-headroom, 176px);
 }
 
 .invitation-cover .cover-actions,

@@ -217,6 +217,7 @@
 
 /* Flap 3D transform */
 .envelope-flap {
+  --flap-duration: 0.8s;
   position: absolute;
   top: 0;
   left: 0;
@@ -226,7 +227,7 @@
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transform: translateZ(18px) rotateX(0deg);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--flap-duration) cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
 }
 
@@ -244,7 +245,8 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0.5px);
-  transition: visibility 0s 0.4s;
+  /* This easing reaches 90 degrees at 35% of its duration, not at 50%. */
+  transition: visibility 0s calc(var(--flap-duration) * 0.35);
 }
 
 .flap-triangle::before {
@@ -339,26 +341,32 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #F0E6D2 0%, var(--color-champagne-gold) 65%, #A88F5B 100%);
-  border: 2px solid #E5D5B3;
-  box-shadow: 0 4px 15px rgba(216, 196, 154, 0.5);
+  background: transparent;
+  border: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #FAF8F3;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   z-index: 15;
   transform: translateZ(1px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  animation: sealPulse 2.8s infinite ease-in-out;
 }
 
-.wax-seal-btn:hover {
-  transform: translateZ(1px) scale(1.08);
-  box-shadow: 0 6px 20px rgba(216, 196, 154, 0.8);
+.wax-seal-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  background: radial-gradient(circle at 35% 35%, #F0E6D2 0%, var(--color-champagne-gold) 65%, #A88F5B 100%);
+  border: 2px solid #E5D5B3;
+  box-shadow: 0 4px 15px rgba(216, 196, 154, 0.5);
+  pointer-events: none;
+  animation: sealPulse 2.8s infinite ease-in-out;
 }
 
 .wax-seal-btn:focus-visible {
@@ -393,7 +401,7 @@
     transform: translate3d(0, var(--letter-lift), 40px) !important;
   }
 
-  .wax-seal-btn {
+  .wax-seal-face {
     animation: none !important;
   }
 

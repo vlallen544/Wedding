@@ -16,8 +16,19 @@ export default function App() {
     // Keep the first rendered view on the invitation envelope, even if the
     // browser tries to restore the previous scroll position on reload.
     window.history.scrollRestoration = 'manual';
+    const frames = new Set();
+    const nextFrame = callback => {
+      const id = window.requestAnimationFrame(() => {
+        frames.delete(id);
+        callback();
+      });
+      frames.add(id);
+    };
 
     const resetToCover = () => {
+      const cover = document.getElementById('invitation-cover');
+      // Do not let a delayed startup frame undo an early tap/open operation.
+      if (cover?.dataset.openingPhase && cover.dataset.openingPhase !== 'closed') return;
       const root = document.documentElement;
       const previousScrollBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = 'auto';
@@ -31,21 +42,21 @@ export default function App() {
     };
 
     resetToCover();
-    const firstFrame = window.requestAnimationFrame(() => {
+    nextFrame(() => {
       resetToCover();
-      window.requestAnimationFrame(resetToCover);
+      nextFrame(resetToCover);
     });
     const handlePageShow = event => {
       // Safari restores this page from its back/forward cache after guests
       // return from Maps. Preserve their place in the invitation in that case.
       if (event.persisted) return;
       resetToCover();
-      window.requestAnimationFrame(resetToCover);
+      nextFrame(resetToCover);
     };
     window.addEventListener('pageshow', handlePageShow);
 
     return () => {
-      window.cancelAnimationFrame(firstFrame);
+      frames.forEach(window.cancelAnimationFrame);
       window.removeEventListener('pageshow', handlePageShow);
     };
   }, []);
